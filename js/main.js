@@ -80,7 +80,7 @@ $(document).ready(function() {
             'textColor': '#f2f2f2',
             'bulletsColor': '#ccc',
             'position': 'right',
-            'tooltips': ['DUNE PHOTO STUDIO', 'PORTFOLIO', 'ABOUT', 'SERVICES', 'PRICES', 'BLOG', 'CONTACT']
+            'tooltips': ['大学校园', '项目经历', '个人简历', '技能', '研究课题', '技术博客', '联系方式']
         }
     });
 
