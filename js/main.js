@@ -2,7 +2,7 @@
 $(window).on("load", function() {
 
     //Preloader
-    $('#loader-wrapper').fadeOut(1600, function() { $(this).remove(); });
+    // $('#loader-wrapper').fadeOut(1600, function() { $(this).remove(); });
 
     /* activate jquery isotope */
     var $container = $('#portfolio-container');
