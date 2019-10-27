@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>404 Not Found</title>
+	<meta name="description" content="Sorry, content you are looking for on LionCoders website was not found.">
+	<meta name="author" content="">
+	<link rel="icon" href="../favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel="stylesheet" type='text/css'>
+	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-50819323-1', 'lion-coders.com');
+	  ga('send', 'pageview');
+
+	</script>
+</head>
+<body>
+
+	<header class="header">
+
+		<div class="container">
+			<div class="row">
+					<div class="header-email-address">hello@lion-coders.com</div>
+					<div class="header-phone-number">+8801924756759</div>	
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<a href="/" class="header-logo">
+						<img src="/images/logo.png" alt="LionCoders logo">
+					</a>
+				</div>
+
+				<div class="col-md-9">
+					<nav class="mainmenu-wrap menu-respond">
+						<a href="#" class="menu-toggle">Main menu <span></span></a>
+
+						<ul class="mainmenu menu-collapse"> 
+							<li class=''><a href='/about/'  title='' class=''>About</a></li>
+							<li class=''><a href='/work/'  title='' class=''>Work</a></li>
+							<li class=""> <a href="#">Website</a>
+                    			<ul class="">
+                      			 	<li><a href='/web-development/' title='' class=''>Web Development</a></li>
+									<li><a href='http://lionhostbd.com' title='' class=''>Web Hosting</a></li>		
+                    			</ul>
+                  			</li>
+							<li class=""> <a href="#">Software</a>
+                    			<ul class="">
+									<li><a href='/software-development/' title='' class=''>Software Development</a></li>
+									<li><a href='/mobile-apps-development/' title='' class=''>App Development</a></li>			
+                    			</ul>
+                  			</li>
+							<li class=''><a href='/blog/'  title='' class=''>Blog</a></li>
+							<li class=''><a href='/contact/'  title='' class=''>Contact</a></li>
+						</ul>
+
+					</nav>
+				</div>			
+			</div>
+			
+		</div>
+	</header>
+
+	<div class="generic-image-banner" style="background:url(../images/about/404.jpg) #2D2739; background-size: cover"> 
+		<div class="container">
+			<div class="image-banner-text"> 				<h1 class="image-banner-title">OOOPS!</h1> 			
+			</div><!-- image-banner-text -->
+		</div><!-- container -->
+	</div><!-- generic-image-banner -->
+		
+		<div class="content-wrap parallax">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-8 col-md-offset-2">
+						<article class="usercontent">
+							<h2>What you were looking for is lost forever!</h2>
+							<h3>Please go back to the <a href="../">home page</a></h3>
+						</article><!-- usercontent -->
+					</div><!-- col -->
+				</div><!-- row -->		
+			</div><!-- container -->	
+		</div><!-- content-wrap -->
+
+		<div class="view-more-wrap">
+			<div class="container">
+				<a href="../work/" class="view-more">View some of our work</a>
+			</div><!-- container -->	
+		</div><!-- view-more-wrap --> <!-- projects widget -->
+
+
+	<footer class="footer">
+		<div class="footer-upper">
+			<div class="container">
+				<div class="row row-horizontal">
+					<div class="col-md-5 col-md-offset-2">
+						<span class="h2">Do you have an idea? </span>
+					</div><!-- col -->
+
+					<div class="col-md-4">
+						<a href="../contact/" class="footer-button button"><span>Lets Get Started?</span><i></i></a>
+					</div><!-- col -->
+				</div><!-- row -->
+			</div><!-- container -->		
+		</div><!-- footer-upper -->
+
+		<div class="footer-lower">
+			<div class="container">
+				<div class="row row-horizontal">
+					<div class="col-sm-5">
+						<nav class="underlinks">
+							<ul> <li class='parent '><a href='../careers/'  title='' class='parent '>Careers</a></li>
+	
+	<li class=''><a href='../privacy-policy/'  title='' class=''>Privacy Policy</a></li>
+							</ul>
+						</nav>
+					</div><!-- col --> 				
+						<div class="col-sm-4">
+							<div class="footer-socialmedia">
+								<a href="http://www.facebook.com/LionCoders" target="_blank"><i class="fa fa-facebook"></i></a
+								><a href="https://twitter.com/LionCoders" target="_blank"><i class="fa fa-twitter"></i></a
+								><a href="http://www.youtube.com/user/lioncodersbd" target="_blank"><i class="fa fa-youtube"></i></a
+								><a href="http://plus.google.com/+LioncodersChittagong/about" target="_blank"><i class="fa fa-google-plus"></i></a>
+							</div><!-- footer-socialmedia -->					
+						</div><!-- col -->
+
+						<div class="col-sm-3">
+							<div class="footer-phone-number">
+								+8801924756759						</div><!-- footer-phone-number -->
+						</div><!-- col -->			</div><!-- row -->
+				<div class="row">
+					<p class="footer-copyright">&copy; 2017. All rights reserved | LionCoders </p>
+				</div>
+			</div><!-- container -->
+		</div><!-- footer-lower -->
+	</footer>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script type="text/javascript" src="../js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="../js/jquery.placeholder.js"></script>
+<script type="text/javascript" src="../js/contact_me.js"></script>
+<script type="text/javascript" src="../js/global.js"></script>
+
+</body>
+</html>
