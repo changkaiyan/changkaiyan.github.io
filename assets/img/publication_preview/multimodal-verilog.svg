@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Multimodal Verilog preview">
+  <rect width="640" height="420" fill="#fffdf8"/>
+  <rect x="54" y="58" width="532" height="300" rx="16" fill="#f4f8fd" stroke="#003f88" stroke-width="5"/>
+  <rect x="110" y="112" width="150" height="102" rx="12" fill="#003f88"/>
+  <rect x="380" y="112" width="150" height="102" rx="12" fill="#c69c3a"/>
+  <path d="M286 164h68" stroke="#b21f2d" stroke-width="14" stroke-linecap="round"/>
+  <path d="M150 248h340M150 282h260" stroke="#003f88" stroke-width="14" stroke-linecap="round"/>
+  <text x="185" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#fffdf8">NL</text>
+  <text x="455" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#082b59">RTL</text>
+  <text x="320" y="365" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#003f88">Multimodal Verilog</text>
+</svg>
