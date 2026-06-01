@@ -1,8 +1,24 @@
+{% assign home_page = site.pages | where: 'permalink', '/' | first %}
+{% assign footer_config = home_page.footer %}
+{% assign footer_enabled = true %}
+{% if footer_config.enabled == false %}
+  {% assign footer_enabled = false %}
+{% endif %}
 {% capture footer_contents %}
-  &copy; Copyright {{ site.time | date: '%Y' }}
-  {{ site.first_name }}
-  {{ site.middle_name }}
-  {{ site.last_name }}. {{ site.footer_text }}
+  {% if footer_config and footer_config.text %}
+    {% if footer_config.show_copyright %}
+      &copy; Copyright {{ site.time | date: '%Y' }}
+      {{ site.first_name }}
+      {{ site.middle_name }}
+      {{ site.last_name }}.
+    {% endif %}
+    {{ footer_config.text }}
+  {% else %}
+    &copy; Copyright {{ site.time | date: '%Y' }}
+    {{ site.first_name }}
+    {{ site.middle_name }}
+    {{ site.last_name }}. {{ site.footer_text }}
+  {% endif %}
   {% if site.impressum_path %}
     <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
   {% endif %}
@@ -11,20 +27,22 @@
   {% endif %}
 {% endcapture %}
 
-{% if site.footer_fixed %}
-  <footer class="fixed-bottom" role="contentinfo">
-    <div class="container mt-0">
-      {{ footer_contents }}
-    </div>
-  </footer>
-{% else %}
-  <footer class="sticky-bottom mt-5" role="contentinfo">
-    {% if site.newsletter.enabled %}
-      {% include newsletter.liquid %}
-    {% endif %}
+{% if footer_enabled %}
+  {% if site.footer_fixed %}
+    <footer class="fixed-bottom" role="contentinfo">
+      <div class="container mt-0">
+        {{ footer_contents }}
+      </div>
+    </footer>
+  {% else %}
+    <footer class="sticky-bottom mt-5" role="contentinfo">
+      {% if site.newsletter.enabled %}
+        {% include newsletter.liquid %}
+      {% endif %}
 
-    <div class="container">
-      {{ footer_contents }}
-    </div>
-  </footer>
+      <div class="container">
+        {{ footer_contents }}
+      </div>
+    </footer>
+  {% endif %}
 {% endif %}

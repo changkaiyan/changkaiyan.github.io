@@ -38,6 +38,210 @@ a.btncv:hover {
   text-decoration: none !important;
 }
 
+.cv-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cv-actions a,
+.cv-print-button {
+  color: var(--global-text-color);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.cv-actions a:hover,
+.cv-print-button:hover {
+  color: var(--global-theme-color);
+}
+
+.cv-print-button {
+  cursor: pointer;
+}
+
+.cv-publications {
+  margin-top: 0.25rem;
+
+  h2.bibliography {
+    margin: 0.75rem 0 0.35rem;
+    padding-top: 0.35rem;
+    text-align: left;
+    color: var(--global-theme-color);
+    border-top: 1px solid var(--global-divider-color);
+    font-size: 1rem;
+  }
+
+  ol.bibliography {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  ol.bibliography li {
+    margin-bottom: 0.45rem;
+  }
+}
+
+.cv-bib-entry {
+  line-height: 1.35;
+}
+
+.cv-bib-title {
+  font-weight: 700;
+}
+
+.cv-bib-authors,
+.cv-bib-venue {
+  font-size: 0.9rem;
+}
+
+.cv-bib-venue {
+  color: var(--global-text-color-light);
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 8mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 10.5pt;
+    line-height: 1.35;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+
+  body.fixed-top-nav,
+  body.sticky-bottom-footer {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  footer,
+  nav,
+  .navbar,
+  .fixed-top,
+  .fixed-bottom,
+  .toc-sidebar,
+  .post-header .post-description,
+  .back-to-top {
+    display: none !important;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  main,
+  .container,
+  .container[role="main"],
+  .post {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .post-header {
+    margin: 0 0 0.25rem !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  .post-title {
+    display: block !important;
+    margin: 0 0 0.35rem !important;
+    font-size: 20pt !important;
+    line-height: 1.15 !important;
+  }
+
+  .cv-actions {
+    display: none !important;
+  }
+
+  .cv .card,
+  .cv-print-section {
+    display: block !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    margin: 0 0 0.35rem !important;
+    padding: 0 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv .card-title {
+    margin: 0.35rem 0 0.15rem !important;
+    padding-bottom: 0.08rem;
+    border-bottom: 1px solid #999;
+    font-size: 12pt !important;
+    line-height: 1.2 !important;
+  }
+
+  .cv p,
+  .cv table,
+  .cv ul {
+    margin-bottom: 0.2rem !important;
+  }
+
+  .cv .list-group-item,
+  .cv .bibliography > li,
+  .cv-compact-item {
+    border: 0 !important;
+    padding: 0.08rem 0 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv .badge {
+    border: 1px solid #777;
+    background: transparent !important;
+    color: #000 !important;
+  }
+
+  .cv-publications ol.bibliography {
+    margin: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .cv-publications ol.bibliography > li {
+    margin-bottom: 0.18rem !important;
+  }
+
+  .cv-publications h2 {
+    margin: 0.3rem 0 0.1rem !important;
+    font-size: 11pt !important;
+  }
+
+  .cv-bib-entry {
+    line-height: 1.22 !important;
+  }
+
+  .cv-bib-title,
+  .cv-bib-authors,
+  .cv-bib-venue {
+    font-size: 9.5pt !important;
+    line-height: 1.22 !important;
+  }
+
+  .cv-bib-title {
+    font-weight: 700 !important;
+  }
+}
+
 /*****************************
  * CV TIME_TABLE styles
  *****************************/

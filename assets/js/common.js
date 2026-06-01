@@ -1,19 +1,32 @@
 $(document).ready(function () {
+  const togglePublicationPanel = function ($entry, panelClass) {
+    const panelSelector = "." + panelClass + ".hidden";
+    $entry.find(panelSelector).toggleClass("open");
+    $entry.find(".hidden.open").not(panelSelector).toggleClass("open");
+
+    const isOpen = $entry.find(panelSelector).hasClass("open");
+    $entry.find(".abstract-trigger").attr("aria-expanded", isOpen ? "true" : "false");
+  };
+
   // add toggle functionality to abstract, award and bibtex buttons
   $("a.abstract").click(function () {
-    $(this).parent().parent().find(".abstract.hidden").toggleClass("open");
-    $(this).parent().parent().find(".award.hidden.open").toggleClass("open");
-    $(this).parent().parent().find(".bibtex.hidden.open").toggleClass("open");
+    togglePublicationPanel($(this).closest(".bib-entry"), "abstract");
+  });
+  $(".abstract-trigger").click(function () {
+    togglePublicationPanel($(this).closest(".bib-entry"), "abstract");
   });
   $("a.award").click(function () {
-    $(this).parent().parent().find(".abstract.hidden.open").toggleClass("open");
-    $(this).parent().parent().find(".award.hidden").toggleClass("open");
-    $(this).parent().parent().find(".bibtex.hidden.open").toggleClass("open");
+    togglePublicationPanel($(this).closest(".bib-entry"), "award");
   });
   $("a.bibtex").click(function () {
-    $(this).parent().parent().find(".abstract.hidden.open").toggleClass("open");
-    $(this).parent().parent().find(".award.hidden.open").toggleClass("open");
-    $(this).parent().parent().find(".bibtex.hidden").toggleClass("open");
+    togglePublicationPanel($(this).closest(".bib-entry"), "bibtex");
+  });
+  $(".honors-toggle").click(function () {
+    const $button = $(this);
+    const isExpanded = $button.attr("aria-expanded") === "true";
+    $(".honors-list .honor-extra").toggleClass("is-collapsed", isExpanded);
+    $button.attr("aria-expanded", isExpanded ? "false" : "true");
+    $button.find("span").text(isExpanded ? $button.data("show-label") : $button.data("hide-label"));
   });
   $("a").removeClass("waves-effect waves-light");
 

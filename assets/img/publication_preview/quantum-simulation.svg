@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Quantum simulation preview">
+  <rect width="640" height="420" fill="#fffdf8"/>
+  <rect x="56" y="60" width="528" height="296" rx="18" fill="#f4f8fd" stroke="#003f88" stroke-width="5"/>
+  <g stroke="#003f88" stroke-width="11" stroke-linecap="round">
+    <path d="M128 140h384M128 210h384M128 280h384"/>
+  </g>
+  <g fill="#fffdf8" stroke-width="8">
+    <circle cx="204" cy="140" r="24" stroke="#b21f2d"/>
+    <circle cx="320" cy="210" r="24" stroke="#c69c3a"/>
+    <circle cx="436" cy="280" r="24" stroke="#b21f2d"/>
+  </g>
+  <path d="M204 140v70h116v70h116" fill="none" stroke="#c69c3a" stroke-width="10" stroke-linecap="round"/>
+  <text x="320" y="365" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#003f88">Quantum Simulation</text>
+</svg>

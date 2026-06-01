@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Data chip design preview">
+  <rect width="640" height="420" fill="#fffdf8"/>
+  <rect x="58" y="62" width="524" height="292" rx="16" fill="#f4f8fd" stroke="#003f88" stroke-width="5"/>
+  <g fill="#003f88">
+    <rect x="118" y="112" width="92" height="72" rx="8"/>
+    <rect x="274" y="112" width="92" height="72" rx="8"/>
+    <rect x="430" y="112" width="92" height="72" rx="8"/>
+  </g>
+  <g fill="#c69c3a">
+    <circle cx="164" cy="254" r="34"/>
+    <circle cx="320" cy="254" r="34"/>
+    <circle cx="476" cy="254" r="34"/>
+  </g>
+  <path d="M210 148h64M366 148h64M198 254h88M354 254h88" stroke="#b21f2d" stroke-width="12" stroke-linecap="round"/>
+  <text x="320" y="365" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#003f88">Data for Chip Design</text>
+</svg>

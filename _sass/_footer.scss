@@ -33,3 +33,25 @@ footer.sticky-bottom {
     text-align: center;
   }
 }
+
+html[data-home-style="metal"] {
+  footer.sticky-bottom,
+  footer.fixed-bottom {
+    background:
+      linear-gradient(95deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0) 42%, rgba(0, 0, 0, 0.12) 75%),
+      linear-gradient(180deg, #2b3541, #151e28);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+
+    .container,
+    p,
+    span,
+    a {
+      color: #e6edf5;
+    }
+
+    a:hover {
+      color: #9fc7f4;
+    }
+  }
+}

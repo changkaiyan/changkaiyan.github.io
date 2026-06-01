@@ -38,7 +38,6 @@
 
     li {
       margin-bottom: 1rem;
-
       .preview {
         display: inline-block;
       }
@@ -69,6 +68,39 @@
 
       .title {
         font-weight: bolder;
+
+        .title-button {
+          align-items: baseline;
+          background: transparent;
+          border: 0;
+          color: var(--global-text-color);
+          cursor: pointer;
+          display: inline-flex;
+          gap: 0.35rem;
+          padding: 0;
+          text-align: left;
+
+          span {
+            color: inherit;
+            font-weight: bolder;
+          }
+
+          i {
+            color: var(--global-theme-color);
+            font-size: 0.72rem;
+            transition:
+              transform 0.18s ease,
+              color 0.18s ease;
+          }
+
+          &:hover {
+            color: var(--global-theme-color);
+          }
+
+          &[aria-expanded="true"] i {
+            transform: rotate(180deg);
+          }
+        }
       }
 
       .author {
@@ -99,19 +131,140 @@
       }
 
       .links {
-        a.btn {
-          color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
-          padding-top: 0.25rem;
-          padding-bottom: 0.25rem;
-          margin-left: 0;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.34rem;
+        margin-top: 0.55rem;
+
+        a.btn,
+        span.btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.35rem;
+          background: rgba(0, 63, 136, 0.035);
+          border: 1px solid rgba(0, 63, 136, 0.18);
+          border-radius: 999px;
+          color: var(--global-theme-color);
+          font-family: "Noto Sans SC", "Microsoft YaHei", Arial, sans-serif;
+          font-size: 0.72rem;
+          font-weight: 760;
+          line-height: 1;
+          margin: 0;
+          min-height: 1.72rem;
+          padding: 0.34rem 0.66rem;
+          text-decoration: none;
+          transition:
+            background-color 0.16s ease,
+            border-color 0.16s ease,
+            box-shadow 0.16s ease,
+            color 0.16s ease,
+            transform 0.16s ease;
 
           &:hover {
+            background: rgba(0, 63, 136, 0.075);
+            border-color: rgba(0, 63, 136, 0.34);
+            box-shadow: 0 3px 8px rgba(8, 43, 89, 0.08);
             color: var(--global-theme-color);
-            border-color: var(--global-theme-color);
+            text-decoration: none;
+            transform: translateY(-1px);
           }
+
+          i {
+            color: inherit;
+            font-size: 0.78rem;
+
+            & + span {
+              color: inherit;
+            }
+          }
+        }
+        .pub-link.btn {
+          border-radius: 999px;
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
+          height: 1.72rem;
+          line-height: 1;
+          min-width: 0;
+          padding: 0.34rem 0.62rem;
+          transition:
+            transform 0.16s ease,
+            background-color 0.16s ease,
+            border-color 0.16s ease,
+            box-shadow 0.16s ease,
+            color 0.16s ease;
+
+          i {
+            font-size: 0.78rem;
+          }
+        }
+        .pub-link-doi.btn {
+          background: rgba(0, 63, 136, 0.075);
+          border-color: rgba(0, 63, 136, 0.28);
+          color: #003f88;
+
+          &:hover {
+            background: rgba(0, 63, 136, 0.12);
+            border-color: rgba(0, 63, 136, 0.42);
+            color: #002f66;
+          }
+        }
+        .pub-link-bib.btn {
+          background: rgba(121, 85, 23, 0.075);
+          border-color: rgba(121, 85, 23, 0.26);
+          color: #795517;
+
+          &:hover {
+            background: rgba(121, 85, 23, 0.12);
+            border-color: rgba(121, 85, 23, 0.4);
+            color: #684612;
+          }
+        }
+        .pub-link-pdf.btn {
+          color: #b42318;
+          border-color: rgba(180, 35, 24, 0.28);
+          background: rgba(180, 35, 24, 0.08);
+
+          &:hover {
+            color: #8f1d15;
+            border-color: rgba(180, 35, 24, 0.48);
+            background: rgba(180, 35, 24, 0.13);
+            box-shadow: 0 4px 10px rgba(180, 35, 24, 0.12);
+            transform: translateY(-1px);
+          }
+        }
+        .pub-link-citations.btn {
+          color: #004b8d;
+          border-color: rgba(0, 75, 141, 0.48);
+          background: rgba(0, 75, 141, 0.1);
+          cursor: default;
+          font-weight: 700;
+
+          &:hover {
+            color: #004b8d;
+            border-color: rgba(0, 75, 141, 0.48);
+          }
+        }
+        .pub-link-code.btn {
+          color: #027a48;
+          border-color: rgba(2, 122, 72, 0.28);
+          background: rgba(2, 122, 72, 0.08);
+
+          &:hover {
+            color: #05603a;
+            border-color: rgba(2, 122, 72, 0.48);
+            background: rgba(2, 122, 72, 0.13);
+            box-shadow: 0 4px 10px rgba(2, 122, 72, 0.12);
+            transform: translateY(-1px);
+          }
+        }
+        .pub-count {
+          min-width: 1.05rem;
+          color: inherit;
+          font-size: 0.72rem;
+          font-weight: 800;
+          line-height: 1;
+          text-align: left;
         }
         a.award.btn {
           border-color: var(--global-highlight-color);
@@ -136,13 +289,16 @@
       .hidden {
         font-size: 0.875rem;
         max-height: 0px;
+        opacity: 0;
         overflow: hidden;
         text-align: justify;
-        transition-property: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+        transform: translateY(-4px);
+        transition:
+          max-height 0.22s ease,
+          opacity 0.18s ease,
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          box-shadow 0.18s ease;
 
         p {
           line-height: 1.4em;
@@ -158,19 +314,22 @@
 
       .hidden.open {
         max-height: 100em;
-        transition-property: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+        opacity: 1;
+        transform: translateY(0);
       }
 
       div.abstract.hidden {
-        border: dashed 1px var(--global-bg-color);
+        background: rgba(0, 63, 136, 0.045);
+        border: 1px solid rgba(0, 63, 136, 0.16);
+        border-left: 3px solid var(--global-theme-color);
+        border-radius: 0.45rem;
+        margin-top: 0.7rem;
       }
 
       div.abstract.hidden.open {
-        border-color: var(--global-text-color);
+        border-color: rgba(0, 63, 136, 0.22);
+        border-left-color: var(--global-theme-color);
+        box-shadow: 0 8px 18px rgba(8, 43, 89, 0.06);
       }
     }
     div.award.hidden {
@@ -179,6 +338,16 @@
     div.award.hidden.open {
       border-color: var(--global-highlight-color);
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .publications ol.bibliography > li,
+  .publications ol.bibliography > li *,
+  .publications ol.bibliography > li *::before,
+  .publications ol.bibliography > li *::after {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
   }
 }
 

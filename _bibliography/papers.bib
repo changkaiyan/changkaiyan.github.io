@@ -1,115 +1,183 @@
 ---
 ---
 
-@string{aps = {American Physical Society,}}
-
-@book{einstein1920relativity,
-  title     = {Relativity: the Special and General Theory},
-  author    = {Einstein, Albert},
-  year      = {1920},
-  publisher = {Methuen & Co Ltd},
-  html      = {relativity.html}
-}
-
-@book{einstein1956investigations,
+@article{chang2023chipgpt,
+  abbr     = {Preprint},
+  title    = {ChipGPT: How far are we from natural language hardware design},
+  author   = {Chang, Kaiyan and Wang, Ying and Ren, Haimeng and Wang, Mengdi and Liang, Shengwen and Han, Yinhe and Li, Huawei and Li, Xiaowei},
+  year     = {2023},
+  preview  = {overview-chipgpt.png},
+  doi      = {10.48550/arXiv.2305.14019},
+  url      = {https://arxiv.org/abs/2305.14019},
+  pdf      = {https://arxiv.org/pdf/2305.14019},
   bibtex_show = {true},
-  title       = {Investigations on the Theory of the Brownian Movement},
-  author      = {Einstein, Albert},
-  year        = {1956},
-  publisher   = {Courier Corporation},
-  preview     = {brownian-motion.gif}
+  scholar_query = {ChipGPT: How far are we from natural language hardware design},
+  citations = {200+},
+  abstract = {This work explores whether large language models can generate hardware logic designs from natural-language specifications. It presents ChipGPT, a zero-code logic design framework that prompts an LLM, repairs and optimizes generated Verilog, builds a design space, and searches for implementations under target metrics, showing improved programmability and broader optimization space over native LLM use alone.},
+  impact   = {Trending CS Papers Top 8 in Hardware Architecture, 09/2024},
+  selected = {true},
+  annotation = {Trending CS Papers Top 8 in Hardware Architecture, 09/2024}
 }
 
-@article{einstein1950meaning,
-  abbr        = {AJP},
+@inproceedings{chang2025llmulator,
+  abbr      = {MICRO},
+  title     = {LLMulator: Generalizable Cost Modeling for Dataflow Accelerators with Input-Adaptive Control Flow},
+  author    = {Chang, Kaiyan and Zhu, Wenlong and Liang, Shengwen and Li, Huawei and Wang, Ying},
+  booktitle = {Proceedings of the IEEE/ACM International Symposium on Microarchitecture},
+  year      = {2025},
+  preview   = {overview-llmulator.png},
+  doi       = {10.48550/arXiv.2508.17826},
+  url       = {https://arxiv.org/abs/2508.17826},
+  pdf       = {https://arxiv.org/pdf/2508.17826},
   bibtex_show = {true},
-  title       = {The meaning of relativity},
-  author      = {Einstein, Albert and Taub, AH},
-  journal     = {American Journal of Physics},
-  volume      = {18},
-  number      = {6},
-  pages       = {403--404},
-  year        = {1950},
-  publisher   = {American Association of Physics Teachers}
+  scholar_query = {LLMulator: Generalizable Cost Modeling for Dataflow Accelerators with Input-Adaptive Control Flow},
+  abstract  = {LLMulator is a progressive numeric modeling framework for fast, generalizable performance prediction on dataflow accelerators. It uses LLM program semantics, categorical token modeling for numeric values, reinforcement-learning-based dynamic calibration for input-dependent control flow, and progressive data augmentation to improve cross-architecture prediction accuracy.},
+  impact    = {CCF-A; top-tier computer architecture conference},
+  selected  = {true},
+  annotation = {CCF-A}
 }
 
-@article{PhysRev.47.777,
-  abbr              = {PhysRev},
-  title             = {Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author            = {Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract          = {In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal           = {Phys. Rev.},
-  location          = {New Jersey},
-  volume            = {47},
-  issue             = {10},
-  pages             = {777--780},
-  numpages          = {0},
-  year              = {1935},
-  month             = {May},
-  publisher         = aps,
-  doi               = {10.1103/PhysRev.47.777},
-  url               = {https://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html              = {https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf               = {example_pdf.pdf},
-  altmetric         = {248277},
-  dimensions        = {true},
-  google_scholar_id = {qyhmnyLat1gC},
-  video             = {https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info   = {. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation        = {* Example use of superscripts<br>† Albert Einstein},
-  selected          = {true},
-  inspirehep_id     = {3255}
-}
-
-@article{einstein1905molekularkinetischen,
-  title     = {{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author    = {Einstein, A.},
-  journal   = {Annalen der physik},
-  volume    = {322},
-  number    = {8},
-  pages     = {549--560},
-  year      = {1905},
-  publisher = {Wiley Online Library}
-}
-
-@article{einstein1905movement,
-  abbr    = {Ann. Phys.},
-  title   = {Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author  = {Einstein, A.},
-  journal = {Ann. Phys.},
-  volume  = {17},
-  pages   = {549--560},
-  year    = {1905}
-}
-
-@article{einstein1905electrodynamics,
-  title  = {On the electrodynamics of moving bodies},
-  author = {Einstein, A.},
-  year   = {1905}
-}
-
-@article{einstein1905photoelectriceffect,
+@inproceedings{chang2024data,
+  abbr      = {DAC},
+  title     = {Data is all you need: Finetuning LLMs for Chip Design via an Automated design-data augmentation framework},
+  author    = {Chang, Kaiyan and Wang, Kun and Yang, Nan and Wang, Ying and Jin, Dantong and Zhu, Wenlong and Chen, Zhirong and Li, Cangyuan and Yan, Hao and Zhou, Yunhao and Zhao, Zhuoliang and Cheng, Yuan and Pan, Yudong and Liu, Yiqi and Wang, Mengdi and Liang, Shengwen and Li, Huawei and Li, Xiaowei},
+  booktitle = {Proceedings of the Design Automation Conference},
+  year      = {2024},
+  preview   = {overview-data-chip-design.png},
+  doi       = {10.1145/3649329.3658493},
+  url       = {https://doi.org/10.1145/3649329.3658493},
+  pdf       = {https://arxiv.org/pdf/2403.11202},
   bibtex_show = {true},
-  abbr        = {Ann. Phys.},
-  title       = {{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}},
-  author      = {Albert Einstein},
-  abstract    = {This is the abstract text.},
-  journal     = {Ann. Phys.},
-  volume      = {322},
-  number      = {6},
-  pages       = {132--148},
-  year        = {1905},
-  doi         = {10.1002/andp.19053220607},
-  award       = {Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name  = {Nobel Prize}
+  code      = {https://github.com/aichipdesign/chipgptft},
+  scholar_query = {Data is all you need: Finetuning LLMs for Chip Design via an Automated design-data augmentation framework},
+  abstract  = {This paper addresses the scarcity of Verilog and EDA-script training data for LLM-based chip design. It proposes an automated design-data augmentation framework that maps Verilog ASTs, EDA feedback, repair examples, and script descriptions into natural-language-aligned training data, then fine-tunes Llama models to improve Verilog and EDA script generation.},
+  impact    = {CCF-A},
+  selected  = {true},
+  annotation = {CCF-A}
 }
 
-@book{przibram1967letters,
+@article{chang2025scalegs,
+  abbr    = {TACO},
+  title   = {ScaleGS: Closing the Gap between Real-time 3D Gaussian Splatting and Real-time XR Rendering},
+  author  = {Chang, Kaiyan and Gan, Yiming and Zhu, Wenlong and Wang, Kun and Chen, Zhirong and Cheng, Yuan and Han, Yinhe and Li, Huawei and Wang, Ying},
+  journal = {ACM Transactions on Architecture and Code Optimization},
+  year    = {2025},
+  preview = {scalegs.svg},
+  doi     = {10.1145/3774425},
+  url     = {https://doi.org/10.1145/3774425},
+  pdf     = {https://dl.acm.org/doi/pdf/10.1145/3774425},
   bibtex_show = {true},
-  title       = {Letters on wave mechanics},
-  author      = {Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year        = {1967},
-  publisher   = {Vision},
-  preview     = {wave-mechanics.gif},
-  abbr        = {Vision}
+  abstract = {ScaleGS is an algorithm-architecture co-design system for real-time multi-object 3D Gaussian Splatting in XR rendering. It restructures the rendering pipeline around object-level behavior, separates static and moving objects, exploits parallelism and data reuse across objects and stages, and combines runtime scheduling with hardware acceleration to improve throughput while preserving rendering quality.},
+  impact  = {CCF-A},
+  selected = {true},
+  annotation = {CCF-A}
+}
+
+@article{chang2025largeprocessor,
+  abbr    = {SCIS},
+  title   = {Large processor chip model},
+  author  = {Chang*, Kaiyan and Chen*, Mingzhi and Chen*, Yunji and Chen*, Zhirong and Fan*, Dongrui and Gong*, Junfeng and Guo*, Nan and Han*, Yinhe and Hao*, Qinfen and Hou*, Shuo and Huang*, Xuan and Jin*, Pengwei and Ke*, Changxin and Li*, Cangyuan and Li*, Guangli and Li*, Huawei and Li*, Kuan and Li*, Naipeng and Liang*, Shengwen and Liu*, Cheng and Liu*, Hongwei and Liu*, Jiahua and Lv*, Junliang and Mu*, Jianan and Qin*, Jin and Sun*, Bin and Wang*, Chenxi and Wang*, Duo and Wang*, Mingjun and Wang*, Ying and Wu*, Chenggang and Wu*, Peiyang and Wu*, Teng and Xiao*, Xiao and Xie*, Mengyao and Xiong*, Chenwei and Xu*, Ruiyuan and Yan*, Mingyu and Ye*, Xiaochun and Yu*, Kuai and Zhang*, Rui and Zhang*, Shuoming and Zhao*, Jiacheng},
+  journal = {Science China Information Sciences},
+  year    = {2025},
+  preview = {overview-processor-model.png},
+  doi     = {10.48550/arXiv.2506.02929},
+  url     = {https://arxiv.org/abs/2506.02929},
+  pdf     = {https://arxiv.org/pdf/2506.02929},
+  bibtex_show = {true},
+  abstract = {This paper introduces the Large Processor Chip Model (LPCM), an LLM-driven framework for end-to-end automated computer architecture design. LPCM organizes automation into human-centric, agent-orchestrated, and model-governed levels, uses 3D Gaussian Splatting as a representative workload, and discusses a path from software-hardware co-design toward more autonomous processor-chip design.},
+  impact  = {CCF-A; co-first author, alphabetical order},
+  annotation = {CCF-A; co-first author, alphabetical order}
+}
+
+@inproceedings{chang2024natural,
+  abbr      = {ICCAD},
+  title     = {Natural language is not enough: Benchmarking multi-modal generative AI for Verilog generation},
+  author    = {Chang, Kaiyan and Chen, Zhirong and Zhou, Yunhao and Zhu, Wenlong and Xu, Haobo and Li, Cangyuan and Wang, Mengdi and Liang, Shengwen and Li, Huawei and Han, Yinhe and Wang, Ying},
+  booktitle = {Proceedings of the IEEE/ACM International Conference on Computer-Aided Design},
+  year      = {2024},
+  preview   = {overview-multimodal-verilog.png},
+  doi       = {10.1145/3676536.3676679},
+  url       = {https://doi.org/10.1145/3676536.3676679},
+  pdf       = {https://arxiv.org/pdf/2407.08473},
+  bibtex_show = {true},
+  code      = {https://github.com/aichipdesign/chipgptv},
+  scholar_query = {Natural language is not enough: Benchmarking multi-modal generative AI for Verilog generation},
+  abstract  = {This paper argues that natural language alone does not provide enough context for many spatially complex hardware architectures. It introduces an open-source benchmark and visual-natural-language query framework for multi-modal Verilog generation, then compares multi-modal models with natural-language-only methods and reports improved generation accuracy when visual design context is included.},
+  impact    = {CCF-B},
+  selected  = {true},
+  annotation = {CCF-B}
+}
+
+@article{chang2025datacentric,
+  abbr    = {TODAES},
+  title   = {A data-centric chip design agent framework for Verilog code generation},
+  author  = {Chang, Kaiyan and Zhu, Wenlong and Wang, Kun and He, Xinyang and Yang, Nan and Chen, Zhirong and Jin, Dantong and Li, Cangyuan and Zhou, Yunhao and Yan, Hao and Zhao, Zhuoliang and Cheng, Yuan and Wang, Mengdi and Liang, Shengwen and Han, Yinhe and Li, Xiaowei and Li, Huawei and Wang, Ying},
+  journal = {ACM Transactions on Design Automation of Electronic Systems},
+  year    = {2025},
+  preview = {overview-data-chip-design.png},
+  doi     = {10.1145/3727980},
+  url     = {https://doi.org/10.1145/3727980},
+  pdf     = {https://dl.acm.org/doi/pdf/10.1145/3727980},
+  bibtex_show = {true},
+  abstract = {This article presents a data-centric chip design agent framework for Verilog generation. It combines pre-fine-tuning data preparation with post-fine-tuning optimization, using automated Verilog and EDA-script augmentation, RTL-level feedback, iterative filtering, and prompt-guided search to improve LLM-generated RTL quality and PPA-aware design outcomes.},
+  impact  = {CCF-B},
+  annotation = {CCF-B}
+}
+
+@article{chang2021archnet,
+  abbr    = {JSA},
+  title   = {ArchNet: A data hiding design for distributed machine learning systems},
+  author  = {Chang, Kaiyan and Jiang, Wei and Zhan, Jinyu and Gong, Zicheng and Pan, Weijia},
+  journal = {Journal of Systems Architecture},
+  year    = {2021},
+  preview = {overview-archnet.png},
+  doi     = {10.1016/j.sysarc.2020.101912},
+  url     = {https://www.sciencedirect.com/science/article/pii/S1383762120301764},
+  pdf     = {https://www.sciencedirect.com/science/article/pii/S1383762120301764/pdfft},
+  bibtex_show = {true},
+  abstract = {ArchNet targets data hiding for distributed machine learning systems that integrate idle embedded devices into cloud computing. It uses a neural-network-based image encryption scheme supported by a tripartite asymmetric encryption theorem, producing encrypted data that remain usable by deep learning models while being difficult for humans or unauthorized users to recognize.},
+  impact  = {CCF-B},
+  annotation = {CCF-B}
+}
+
+@inproceedings{chang2023plpilot,
+  abbr      = {NeurIPS Workshop},
+  title     = {PLPilot: Benchmark an Automated Programming Language Design Framework Enabled by Large Language Models},
+  author    = {Chang, Kaiyan and Wang, Kun and Wang, Mengdi and Liang, Shengwen and Han, Yinhe and Li, Huawei and Li, Xiaowei and Wang, Ying},
+  booktitle = {NeurIPS 2023 SysML Workshop},
+  year      = {2023},
+  preview   = {overview-plpilot.png},
+  url       = {https://openreview.net/forum?id=t7BEqidKsk},
+  pdf       = {https://mlforsystems.org/assets/papers/neurips2023/paper13.pdf},
+  bibtex_show = {true},
+  abstract  = {PLPilot studies how large language models can support programming-language design. It decomposes language design into LLM-compatible stages, proposes benchmarks for LLM-based programming-language tasks, and evaluates the framework across eight design stages, showing productivity gains over fully manual language design.}
+}
+
+@inproceedings{chang2023postllm,
+  abbr      = {NeurIPS Workshop},
+  title     = {Improving Large Language Model Hardware Generating Quality through Post-LLM Search},
+  author    = {Chang, Kaiyan and Ren, Haimeng and Wang, Mengdi and Liang, Shengwen and Han, Yinhe and Li, Huawei and Li, Xiaowei and Wang, Ying},
+  booktitle = {NeurIPS 2023 SysML Workshop},
+  year      = {2023},
+  preview   = {overview-postllm.png},
+  url       = {https://openreview.net/forum?id=IY7M6sqCxq},
+  pdf       = {https://mlforsystems.org/assets/papers/neurips2023/paper12.pdf},
+  bibtex_show = {true},
+  abstract  = {This work improves LLM-generated hardware by adding post-generation design space exploration. It prompts an LLM to produce initial Verilog, corrects and optimizes candidate programs, organizes them into an HDL search space, and searches for implementations that better satisfy power, performance, and area objectives.}
+}
+
+@inproceedings{zhao2023quantum,
+  abbr      = {ICCAD},
+  title     = {Full State Quantum Circuit Simulation Beyond Memory Limit},
+  author    = {Zhao, Yilun and Chen, Yu and Li, He and Wang, Ying and Chang, Kaiyan and Wang, Bingmeng and Li, Bing and Han, Yinhe},
+  booktitle = {Proceedings of the IEEE/ACM International Conference on Computer-Aided Design},
+  year      = {2023},
+  preview   = {overview-quantum-simulation.png},
+  doi       = {10.1109/ICCAD57390.2023.10323666},
+  url       = {https://doi.org/10.1109/ICCAD57390.2023.10323666},
+  pdf       = {https://zhaoyilun.org/publication/zhao-2023-qdao/zhao-2023-qdao.pdf},
+  bibtex_show = {true},
+  abstract  = {This paper addresses full-state quantum circuit simulation beyond memory capacity limits. It observes that simply extending memory with secondary storage causes prohibitive data movement, and proposes methods to reduce storage traffic and improve the feasibility of simulating larger quantum circuits on classical systems.},
+  impact    = {CCF-B},
+  annotation = {CCF-B}
 }

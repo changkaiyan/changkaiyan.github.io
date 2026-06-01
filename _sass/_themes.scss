@@ -6,20 +6,36 @@
 
 :root {
   color-scheme: light;
-  --global-bg-color: #{v.$white-color};
+  --global-bg-color: #{v.$cas-paper};
   --global-code-bg-color: #{v.$code-bg-color-light};
-  --global-text-color: #{v.$black-color};
-  --global-text-color-light: #{v.$grey-color};
-  --global-theme-color: #{v.$purple-color};
-  --global-hover-color: #{v.$purple-color};
+  --global-text-color: #{v.$cas-ink};
+  --global-text-color-light: #{v.$cas-muted};
+  --global-theme-color: #{v.$cas-blue};
+  --global-hover-color: #{v.$cas-red};
   --global-hover-text-color: #{v.$white-color};
-  --global-footer-bg-color: #{v.$grey-color-dark};
-  --global-footer-text-color: #{v.$grey-color-light};
+  --global-footer-bg-color: #{v.$cas-blue-dark};
+  --global-footer-text-color: #dbe5f2;
   --global-footer-link-color: #{v.$white-color};
   --global-distill-app-color: #{v.$grey-color};
-  --global-divider-color: rgba(0, 0, 0, 0.1);
-  --global-card-bg-color: #{v.$white-color};
-  --global-highlight-color: #{v.$red-color-dark};
+  --global-divider-color: rgba(8, 43, 89, 0.16);
+  --global-card-bg-color: #fffdf8;
+  --global-highlight-color: #{v.$cas-red};
+  --cas-accent-color: #{v.$cas-gold};
+  --metal-surface-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.74), rgba(184, 197, 211, 0.14) 42%, rgba(255, 255, 255, 0.38));
+  --metal-edge-color: rgba(118, 134, 154, 0.34);
+  --metal-highlight-color: rgba(255, 255, 255, 0.82);
+  --metal-shadow-color: rgba(8, 43, 89, 0.12);
+  --metal-sheen-color: rgba(255, 255, 255, 0.32);
+  --metal-bg: #d7dce1;
+  --metal-panel: #dfe4e8;
+  --metal-panel-low: #c2cad2;
+  --metal-panel-high: #f4f6f8;
+  --metal-border: rgba(55, 68, 82, 0.32);
+  --metal-text: #172433;
+  --metal-muted: #4f5d6c;
+  --metal-accent: #003f88;
+  --metal-warm-accent: #a9842f;
+  --metal-engrave-shadow: rgba(18, 31, 45, 0.18);
   --global-back-to-top-bg-color: rgba(
     #{color.channel(v.$black-color, "red", v.$space: rgb)},
     #{color.channel(v.$black-color, "green", v.$space: rgb)},
@@ -76,19 +92,35 @@
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --global-bg-color: #{v.$grey-color-dark};
+  --global-bg-color: #101722;
   --global-code-bg-color: #{v.$code-bg-color-dark};
-  --global-text-color: #{v.$grey-color-light};
-  --global-text-color-light: #{v.$grey-color};
-  --global-theme-color: #{v.$cyan-color};
-  --global-hover-color: #{v.$cyan-color};
+  --global-text-color: #edf3fb;
+  --global-text-color-light: #aeb9c8;
+  --global-theme-color: #8fb8e8;
+  --global-hover-color: #d8b45a;
   --global-hover-text-color: #{v.$white-color};
-  --global-footer-bg-color: #{v.$grey-color-light};
-  --global-footer-text-color: #{v.$grey-color-dark};
-  --global-footer-link-color: #{v.$black-color};
+  --global-footer-bg-color: #071d3a;
+  --global-footer-text-color: #dbe5f2;
+  --global-footer-link-color: #{v.$white-color};
   --global-distill-app-color: #{v.$grey-color-light};
   --global-divider-color: #424246;
-  --global-card-bg-color: #{v.$grey-900};
+  --global-card-bg-color: #162231;
+  --cas-accent-color: #d8b45a;
+  --metal-surface-gradient: linear-gradient(145deg, rgba(232, 240, 250, 0.11), rgba(88, 105, 126, 0.14) 42%, rgba(255, 255, 255, 0.05));
+  --metal-edge-color: rgba(166, 184, 207, 0.28);
+  --metal-highlight-color: rgba(238, 246, 255, 0.16);
+  --metal-shadow-color: rgba(0, 0, 0, 0.36);
+  --metal-sheen-color: rgba(255, 255, 255, 0.08);
+  --metal-bg: #151d26;
+  --metal-panel: #252f3a;
+  --metal-panel-low: #151f2a;
+  --metal-panel-high: #3a4653;
+  --metal-border: rgba(183, 195, 209, 0.24);
+  --metal-text: #f0f4f8;
+  --metal-muted: #b8c2ce;
+  --metal-accent: #8fb8e8;
+  --metal-warm-accent: #c7a14d;
+  --metal-engrave-shadow: rgba(0, 0, 0, 0.38);
   --global-back-to-top-bg-color: rgba(
     #{color.channel(v.$white-color, "red", v.$space: rgb)},
     #{color.channel(v.$white-color, "green", v.$space: rgb)},

@@ -17,20 +17,26 @@ layout: default
   <header class="post-header">
     <h1 class="post-title">
       {{ page.title }}
-      {% if page.cv_pdf %}
-        <a
-          {% if page.cv_pdf contains '://' %}
-            href="{{ page.cv_pdf }}"
-          {% else %}
-            href="{{ page.cv_pdf | relative_url }}"
-          {% endif %}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="float-right"
-        >
-          <i class="fa-solid fa-file-pdf"></i>
-        </a>
-      {% endif %}
+      <span class="cv-actions float-right">
+        <button type="button" class="cv-print-button" aria-label="Export CV as PDF" title="Export CV as PDF" onclick="window.print()">
+          <i class="fa-solid fa-print" aria-hidden="true"></i>
+        </button>
+        {% if page.cv_pdf %}
+          <a
+            {% if page.cv_pdf contains '://' %}
+              href="{{ page.cv_pdf }}"
+            {% else %}
+              href="{{ page.cv_pdf | relative_url }}"
+            {% endif %}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open CV PDF"
+            title="Open CV PDF"
+          >
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          </a>
+        {% endif %}
+      </span>
     </h1>
     {% if page.description %}
       <p class="post-description">{{ page.description }}</p>
@@ -59,6 +65,7 @@ layout: default
       {% if render_rendercv and site.data.cv and site.data.cv.cv %}
         {% comment %} RenderCV format {% endcomment %}
         {% assign cv = site.data.cv.cv %}
+        {% assign about_page = site.pages | where: 'permalink', '/' | first %}
 
         <!-- Header/Contact Information -->
         {% if cv.name or cv.label or cv.location or cv.email or cv.phone or cv.website %}
@@ -142,8 +149,18 @@ layout: default
           {% assign section_title = section_pair[0] %}
           {% assign section_entries = section_pair[1] %}
 
-          {% comment %} Skip Experience and Volunteer as we've already processed them combined {% endcomment %}
-          {% if section_title == 'Experience' or section_title == 'Volunteer' %}
+          {% comment %}
+            Skip sections that are rendered from canonical site data below:
+            - Publications: _bibliography/papers.bib via jekyll-scholar
+            - Awards/Services: _pages/about.md front matter
+          {% endcomment %}
+          {% if section_title == 'Experience'
+            or section_title == 'Volunteer'
+            or section_title == 'Publications'
+            or section_title == 'Awards'
+            or section_title == 'Honors and Awards'
+            or section_title == 'Services'
+          %}
             {% continue %}
           {% endif %}
 
@@ -195,6 +212,67 @@ layout: default
             </div>
           </div>
         {% endfor %}
+
+        <a class="anchor" id="publications"></a>
+        <div class="card mt-3 p-3 cv-print-section">
+          <h3 class="card-title font-weight-medium">Publications</h3>
+          <div class="publications cv-publications">
+            {% bibliography --template bib_cv %}
+          </div>
+        </div>
+
+        {% if about_page.honors_awards %}
+          <a class="anchor" id="awards"></a>
+          <div class="card mt-3 p-3 cv-print-section">
+            <h3 class="card-title font-weight-medium">Awards</h3>
+            <ul class="card-text font-weight-light list-group list-group-flush">
+              {% for honor in about_page.honors_awards %}
+                <li class="list-group-item cv-compact-item">
+                  <div class="row">
+                    <div class="col-xs-2 col-sm-2 col-md-2 text-center">
+                      <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">
+                        {{ honor.year }}
+                      </span>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
+                      <h6 class="title font-weight-bold ml-1 ml-md-4">{{ honor.en | default: honor }}</h6>
+                    </div>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        {% if about_page.services %}
+          <a class="anchor" id="services"></a>
+          <div class="card mt-3 p-3 cv-print-section">
+            <h3 class="card-title font-weight-medium">Services</h3>
+            <ul class="card-text font-weight-light list-group list-group-flush">
+              {% for service in about_page.services %}
+                <li class="list-group-item cv-compact-item">
+                  {% if service.role %}
+                    <span class="font-weight-bold">{{ service.role }}</span>
+                    {% if service.venues %}
+                      , {{ service.venues }}
+                    {% endif %}
+                    {% if service.year %}
+                      , {{ service.year }}
+                    {% endif %}
+                    {% if service.date %}
+                      , {{ service.date }}
+                    {% endif %}
+                    {% if service.type %}
+                      <span class="cv-service-type">({{ service.type }})</span>
+                    {% endif %}
+                  {% else %}
+                    {{ service }}
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
 
       {% elsif render_jsonresume and site.data.resume %}
         {% comment %} JSONResume format {% endcomment %}

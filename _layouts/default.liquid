@@ -21,27 +21,37 @@
     {% include header.liquid %}
 
     <!-- Content -->
-    <div class="container mt-5" role="main">
+    <div class="container mt-5{% if page.permalink == '/' %} home-container{% endif %}" role="main">
       {% if page.toc and page.toc.sidebar %}
         {% if page.toc.sidebar == 'right' %}
-          <div class="row">
+          <div class="row toc-layout toc-collapsed toc-right">
             <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
+            <div class="col-sm-12 toc-main">{{ content }}</div>
             <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
+            <div class="col-sm-3 toc-sidebar-col">
+              <div class="toc-panel">
+                <div class="toc-panel-title">On this page</div>
+                <nav id="toc-sidebar" class="sticky-top"></nav>
+              </div>
             </div>
           </div>
         {% else %}
-          <div class="row">
+          <div class="row toc-layout toc-collapsed toc-left">
             <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
+            <div class="col-sm-3 toc-sidebar-col">
+              <div class="toc-panel">
+                <div class="toc-panel-title">On this page</div>
+                <nav id="toc-sidebar" class="sticky-top"></nav>
+              </div>
             </div>
             <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
+            <div class="col-sm-12 toc-main">{{ content }}</div>
           </div>
         {% endif %}
+        <button class="toc-toggle-button" type="button" aria-controls="toc-sidebar" aria-expanded="false">
+          <span class="toc-toggle-caret" aria-hidden="true"></span>
+          <span>Contents</span>
+        </button>
       {% else %}
         {{ content }}
       {% endif %}

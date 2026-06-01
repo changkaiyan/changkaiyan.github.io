@@ -19,6 +19,26 @@ strong {
   color: var(--global-text-color);
 }
 
+h2 {
+  border-bottom: 1px solid var(--global-divider-color);
+  color: var(--global-theme-color);
+  font-size: 1.45rem;
+  margin-top: 2.15rem;
+  padding-bottom: 0.45rem;
+
+  &::before {
+    content: "";
+    border-left: 4px solid var(--global-hover-color);
+    margin-right: 0.55rem;
+  }
+}
+
+h3 {
+  color: var(--global-theme-color);
+  font-size: 1.15rem;
+  margin-top: 1.45rem;
+}
+
 hr {
   border-top: 1px solid var(--global-divider-color);
 }

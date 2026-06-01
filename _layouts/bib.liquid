@@ -46,9 +46,18 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+  <div id="{{ entry.key }}" class="bib-entry {% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
     <!-- Title -->
-    <div class="title">{{ entry.title }}</div>
+    <div class="title">
+      {% if entry.abstract %}
+        <button type="button" class="title-button abstract-trigger" aria-expanded="false">
+          <span>{{ entry.title }}</span>
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </button>
+      {% else %}
+        {{ entry.title }}
+      {% endif %}
+    </div>
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}
@@ -194,11 +203,11 @@
           {%- if entry.award_name %}{{ entry.award_name }}{% else %}Awarded{% endif -%}
         </a>
       {% endif %}
-      {% if entry.abstract %}
-        <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-      {% endif %}
       {% if entry.doi %}
-        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
+        <a href="https://doi.org/{{ entry.doi }}" class="pub-link pub-link-doi btn btn-sm z-depth-0" role="button">
+          <i class="fa-solid fa-fingerprint" aria-hidden="true"></i>
+          <span>DOI</span>
+        </a>
       {% endif %}
       {% if entry.arxiv %}
         <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
@@ -207,7 +216,10 @@
         <a href="https://hal.science/{{ entry.hal }}" class="btn btn-sm z-depth-0" role="button">HAL</a>
       {% endif %}
       {% if entry.bibtex_show %}
-        <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+        <a class="bibtex pub-link pub-link-bib btn btn-sm z-depth-0" role="button">
+          <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
+          <span>Bib</span>
+        </a>
       {% endif %}
       {% if entry.html %}
         {% if entry.html contains '://' %}
@@ -218,10 +230,33 @@
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
-          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+          <a href="{{ entry.pdf }}" class="pub-link pub-link-pdf btn btn-sm z-depth-0" role="button" title="PDF" aria-label="PDF">
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          </a>
         {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+          <a
+            href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}"
+            class="pub-link pub-link-pdf btn btn-sm z-depth-0"
+            role="button"
+            title="PDF"
+            aria-label="PDF"
+          >
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          </a>
         {% endif %}
+      {% endif %}
+      {% assign publication_records = site.data.publications.papers %}
+      {% assign publication_record = publication_records[entry.key] %}
+      {% assign citation_count = publication_record.citations | default: entry.citations %}
+      {% if citation_count %}
+        <span
+          class="pub-link pub-link-citations citation-count btn btn-sm z-depth-0"
+          title="Citation count"
+          aria-label="Citation count: {{ citation_count }}"
+        >
+          <i class="fa-solid fa-quote-right" aria-hidden="true"></i>
+          <span class="pub-count">{{ citation_count }}</span>
+        </span>
       {% endif %}
       {% if entry.supp %}
         {% if entry.supp contains '://' %}
@@ -239,7 +274,9 @@
         <a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button">Blog</a>
       {% endif %}
       {% if entry.code %}
-        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button">Code</a>
+        <a href="{{ entry.code }}" class="pub-link pub-link-code btn btn-sm z-depth-0" role="button" title="Code" aria-label="Code">
+          <i class="fa-solid fa-code" aria-hidden="true"></i>
+        </a>
       {% endif %}
       {% if entry.poster %}
         {% if entry.poster contains '://' %}
@@ -270,16 +307,11 @@
         {% assign entry_has_dimensions_badge = true %}
       {% endif %}
 
-      {% assign entry_has_google_scholar_badge = false %}
-      {% if entry.google_scholar_id %}
-        {% assign entry_has_google_scholar_badge = true %}
-      {% endif %}
-
       {% assign entry_has_inspirehep_badge = false %}
       {% if entry.inspirehep_id %}
         {% assign entry_has_inspirehep_badge = true %}
       {% endif %}
-      {% if entry_has_altmetric_badge or entry_has_dimensions_badge or entry_has_google_scholar_badge or entry_has_inspirehep_badge %}
+      {% if entry_has_altmetric_badge or entry_has_dimensions_badge or entry_has_inspirehep_badge %}
         <div class="badges">
           {% if site.enable_publication_badges.altmetric and entry_has_altmetric_badge %}
             <span
@@ -315,36 +347,6 @@
               data-legend="hover-right"
               style="margin-bottom: 3px;"
             ></span>
-          {% endif %}
-          {% if site.enable_publication_badges.google_scholar and entry_has_google_scholar_badge %}
-            <a
-              href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user={{ site.data.socials.scholar_userid }}&citation_for_view={{ site.data.socials.scholar_userid }}:{{ entry.google_scholar_id }}"
-              aria-label="Google Scholar link"
-              role="button"
-            >
-              {% assign citation_count = 0 %}
-              {% assign scholar_id_key = site.scholar_userid | append: ':' | append: entry.google_scholar_id %}
-              {% assign publication_key = entry.google_scholar_id %}
-
-              {% if site.data.citations.papers[scholar_id_key] %}
-                {% assign citation_count = site.data.citations.papers[scholar_id_key].citations %}
-              {% elsif site.data.citations.papers[publication_key] %}
-                {% assign citation_count = site.data.citations.papers[publication_key].citations %}
-              {% else %}
-                {% for paper in site.data.citations.papers %}
-                  {% assign paper_key = paper[0] %}
-                  {% if paper_key contains entry.google_scholar_id %}
-                    {% assign citation_count = paper[1].citations %}
-                    {% break %}
-                  {% endif %}
-                {% endfor %}
-              {% endif %}
-
-              <img
-                src="https://img.shields.io/badge/scholar-{{ citation_count }}-4285F4?logo=googlescholar&labelColor=beige"
-                alt="{{ citation_count }} Google Scholar citations"
-              >
-            </a>
           {% endif %}
           {% if site.enable_publication_badges.inspirehep and entry_has_inspirehep_badge %}
             <a

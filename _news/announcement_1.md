@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+date: 2024-05-18 09:00:00+0800
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement.
+Presented ChipGPT, a tool for AI-assisted chip design, at the 2024 Public Science Day frontier technology showcase of the Chinese Academy of Sciences.

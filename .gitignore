@@ -1,4 +1,5 @@
 _site
+_config_local.yml
 .bundle
 .DS_store
 .idea
@@ -7,6 +8,7 @@ _site
 .ruby-version
 .sass-cache
 .tweet-cache
+.tmp-bundler/
 .venv
 assets/libs/
 assets/rendercv/rendercv_output/*.typ
