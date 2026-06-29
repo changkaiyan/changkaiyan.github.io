@@ -1,57 +1,57 @@
-updated_at: "2026-06-22"
+updated_at: "2026-06-29"
 papers:
   chang2023chipgpt:
     citations: "222"
-    source: google_scholar
+    source: existing
     query: "ChipGPT: How far are we from natural language hardware design"
-    updated_at: "2026-06-22"
+    updated_at: "2026-06-29"
   chang2025llmulator:
     citations: "1"
-    source: google_scholar
+    source: existing
     query: "LLMulator: Generalizable Cost Modeling for Dataflow Accelerators with Input-Adaptive Control Flow"
-    updated_at: "2026-06-22"
+    updated_at: "2026-06-29"
   chang2024data:
     citations: "101"
-    source: google_scholar
+    source: existing
     query: "Data is all you need: Finetuning LLMs for Chip Design via an Automated design-data augmentation framework"
-    updated_at: "2026-06-22"
+    updated_at: "2026-06-29"
   chang2025scalegs:
     citations: "1"
-    source: google_scholar
+    source: existing
     query: "ScaleGS: Closing the Gap between Real-time 3D Gaussian Splatting and Real-time XR Rendering"
-    updated_at: "2026-06-22"
+    updated_at: "2026-06-29"
   chang2025largeprocessor:
     citations: "3"
-    source: google_scholar
+    source: existing
     query: "Large processor chip model"
-    updated_at: "2026-06-22"
+    updated_at: "2026-06-29"
   chang2024natural:
     citations: "30"
-    source: google_scholar
+    source: existing
     query: "Natural language is not enough: Benchmarking multi-modal generative AI for Verilog generation"
-    updated_at: "2026-06-22"
+    updated_at: "2026-06-29"
   chang2025datacentric:
     citations: "11"
-    source: google_scholar
+    source: existing
     query: "A data-centric chip design agent framework for Verilog code generation"
-    updated_at: "2026-06-22"
+    updated_at: "2026-06-29"
   chang2021archnet:
     citations: "2"
-    source: google_scholar
+    source: existing
     query: "ArchNet: A data hiding design for distributed machine learning systems"
-    updated_at: "2026-06-22"
+    updated_at: "2026-06-29"
   chang2023plpilot:
     citations: "0"
     source: existing
     query: "PLPilot: Benchmark an Automated Programming Language Design Framework Enabled by Large Language Models"
-    updated_at: "2026-06-22"
+    updated_at: "2026-06-29"
   chang2023postllm:
     citations: "10"
-    source: google_scholar
+    source: existing
     query: "Improving Large Language Model Hardware Generating Quality through Post-LLM Search"
-    updated_at: "2026-06-22"
+    updated_at: "2026-06-29"
   zhao2023quantum:
     citations: "8"
-    source: google_scholar
+    source: existing
     query: "Full State Quantum Circuit Simulation Beyond Memory Limit"
-    updated_at: "2026-06-22"
+    updated_at: "2026-06-29"
