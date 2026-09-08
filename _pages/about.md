@@ -37,6 +37,8 @@ intro_zh: |
 
   我的研究方向位于计算机体系结构、电子设计自动化和大语言模型的交叉领域。我尤其关注如何构建能够理解、生成、验证和优化硬件设计的智能系统。近期工作包括 ChipGPT、ChipGPT-FT、多模态 Verilog 生成，以及面向数据流加速器的基于大语言模型的代价建模。
 
+  博士期间，我以第一作者或共同第一作者在 MICRO、DAC、ICCAD、TACO、SCIS 等计算机体系结构与电子设计自动化领域顶级会议和期刊发表多篇论文，研究成果涵盖自然语言芯片设计、LLM 性能建模、芯片设计数据增强与智能 Agent 工作流等方向。一作单篇最高被引 200 余次，相关成果曾入选计算机体系结构 Trending CS Papers Top 8，并受到《中国电子报》等媒体报道。曾获中国科学院院长特别奖（中国科学院授予研究生的最高荣誉）、中国科学院计算技术研究所所长特别奖、DAC Young Fellow 等荣誉。
+
 academic_profile:
   detail_title: Background and internships
   detail_title_zh: 教育背景与实习经历
@@ -309,3 +311,5 @@ impact_media:
 Hi! I received my Ph.D. degree in Computer Architecture from the Institute of Computing Technology, Chinese Academy of Sciences in June 2026, advised by Prof. Ying Wang and Prof. Huawei Li. Before that, I entered the undergraduate program in Software Engineering at the University of Electronic Science and Technology of China in 2017 and received my B.Eng. degree in 2021, advised by Prof. Wei Jiang.
 
 My research lies at the intersection of computer architecture, electronic design automation, and large language models. I am particularly interested in building intelligent systems that can understand, generate, verify, and optimize hardware designs. My recent work includes ChipGPT, ChipGPT-FT, multimodal Verilog generation, and LLM-based cost modeling for dataflow accelerators.
+
+During my Ph.D., I published multiple first-author or co-first-author papers at top computer architecture and EDA venues, including MICRO, DAC, ICCAD, TACO, and SCIS. My work spans natural-language-driven chip design, LLM performance modeling, chip design data augmentation, and intelligent agent workflows. My most cited first-author paper has received more than 200 citations; related work was selected among the Trending CS Papers Top 8 in computer architecture and covered by outlets including _China Electronics News_. I have received honors including the President's Special Scholarship of the Chinese Academy of Sciences, the highest honor granted by CAS to graduate students; the Director's Special Award of the Institute of Computing Technology, CAS; and DAC Young Fellow.
