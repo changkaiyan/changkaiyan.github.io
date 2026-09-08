@@ -11,14 +11,14 @@ ninja.data = [{
     },
   },{id: "nav-publications",
           title: "Publications",
-          description: "* denotes Equal Contribution, # denotes Corresponding Author.",
+          description: "Peer-reviewed publications by Kaiyan Chang in computer architecture, electronic design automation, and LLM-assisted chip design.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/publications/";
           },
         },{id: "nav-cv",
           title: "CV",
-          description: "Academic CV.",
+          description: "Academic CV of Kaiyan Chang, covering education, research, publications, honors, and academic service.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
