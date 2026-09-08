@@ -12,8 +12,7 @@ const getPreferredAboutLanguage = function () {
     return savedLanguage;
   }
 
-  const languages = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || navigator.userLanguage || "en"];
-  return languages.some((language) => language && language.toLowerCase().startsWith("zh")) ? "zh" : "en";
+  return "en";
 };
 
 const setAboutLanguage = function (language) {
