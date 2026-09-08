@@ -191,6 +191,59 @@ ul.task-list input[type="checkbox"] {
 
 // About hero
 
+[data-about-lang="zh"] {
+  display: none !important;
+}
+
+html[data-about-lang="zh"] {
+  [data-about-lang="en"] {
+    display: none !important;
+  }
+
+  [data-about-lang="zh"] {
+    display: revert !important;
+  }
+}
+
+.about-language-switch {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.28rem;
+  justify-content: flex-end;
+  margin: 0 0 0.55rem auto;
+  width: 100%;
+
+  button {
+    background: var(--metal-surface-gradient), rgba(255, 255, 255, 0.32);
+    border: 1px solid rgba(0, 63, 136, 0.18);
+    border-radius: 999px;
+    color: var(--global-text-color-light);
+    font-family: "Noto Sans SC", "Microsoft YaHei", Arial, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 760;
+    line-height: 1;
+    padding: 0.36rem 0.58rem;
+    transition:
+      border-color 0.16s ease,
+      box-shadow 0.16s ease,
+      color 0.16s ease;
+
+    &[aria-pressed="true"] {
+      border-color: rgba(0, 63, 136, 0.36);
+      box-shadow:
+        inset 0 1px 0 var(--metal-highlight-color),
+        0 0 0 0.14rem rgba(0, 63, 136, 0.08);
+      color: var(--global-theme-color);
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: rgba(0, 63, 136, 0.32);
+      color: var(--global-hover-color);
+    }
+  }
+}
+
 .about-hero {
   align-items: stretch;
   display: flex;
@@ -1408,6 +1461,15 @@ ul.task-list input[type="checkbox"] {
 }
 
 // Services
+
+.service-group-title {
+  color: var(--global-theme-color);
+  font-size: 0.9rem;
+  font-weight: 720;
+  letter-spacing: 0;
+  line-height: 1.25;
+  margin: 0.74rem 0 0.28rem;
+}
 
 .services-list {
   display: grid;

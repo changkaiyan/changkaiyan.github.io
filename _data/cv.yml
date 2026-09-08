@@ -11,6 +11,8 @@ cv:
   sections:
     Education:
       - institution: Institute of Computing Technology, Chinese Academy of Sciences; National Key Laboratory of Processors
+        logo: logos/ict-cas.png
+        logo_alt: Institute of Computing Technology, Chinese Academy of Sciences logo
         location: Beijing, China
         area: Computer Architecture
         studyType: Ph.D. Student
@@ -21,6 +23,8 @@ cv:
           - "Research: Processor design automation (ChipGPT)"
 
       - institution: University of Electronic Science and Technology of China, School of Information and Software Engineering
+        logo: logos/uestc.png
+        logo_alt: University of Electronic Science and Technology of China logo
         location: Chengdu, China
         area: Software Engineering
         studyType: B.Eng.
@@ -32,6 +36,8 @@ cv:
 
     Experience:
       - company: National Innovation Center of Electronic Design Automation
+        logo: logos/eda-national-innovation-center.png
+        logo_alt: EDA National Innovation Center logo
         position: Research Intern, LLM-Based Code Generation for Circuit Design
         location: Nanjing, China
         start_date: 2024-05
@@ -40,6 +46,8 @@ cv:
           - "Advisor: Qiang Xu"
 
       - company: Huawei 2012 Laboratories, Central Software Institute
+        logo: logos/huawei.png
+        logo_alt: Huawei logo
         position: Research Intern, AI Compiler
         location: Hangzhou, China
         start_date: 2021-05
@@ -48,6 +56,8 @@ cv:
           - "Advisors: Yulong Wang and Chen Cheng"
 
       - company: Intel Asia-Pacific Research and Development Center
+        logo: logos/intel.png
+        logo_alt: Intel logo
         position: Intern, Compiler Testing and Development
         location: Shanghai, China
         start_date: 2020-05

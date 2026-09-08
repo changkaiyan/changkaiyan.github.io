@@ -1,4 +1,65 @@
+const ABOUT_LANGUAGE_STORAGE_KEY = "about-language";
+
+const getPreferredAboutLanguage = function () {
+  let savedLanguage = null;
+  try {
+    savedLanguage = window.localStorage.getItem(ABOUT_LANGUAGE_STORAGE_KEY);
+  } catch (error) {
+    savedLanguage = null;
+  }
+
+  if (savedLanguage === "en" || savedLanguage === "zh") {
+    return savedLanguage;
+  }
+
+  const languages = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || navigator.userLanguage || "en"];
+  return languages.some((language) => language && language.toLowerCase().startsWith("zh")) ? "zh" : "en";
+};
+
+const setAboutLanguage = function (language) {
+  const normalizedLanguage = language === "zh" ? "zh" : "en";
+  document.documentElement.setAttribute("data-about-lang", normalizedLanguage);
+};
+
+setAboutLanguage(getPreferredAboutLanguage());
+
 $(document).ready(function () {
+  const updateAboutLanguageControls = function (language) {
+    const normalizedLanguage = language === "zh" ? "zh" : "en";
+    $("[data-about-lang-option]").each(function () {
+      const $button = $(this);
+      $button.attr("aria-pressed", $button.data("about-lang-option") === normalizedLanguage ? "true" : "false");
+    });
+
+    $("[data-about-label-en]").each(function () {
+      const $element = $(this);
+      const label =
+        normalizedLanguage === "zh" ? $element.data("about-label-zh") || $element.data("about-label-en") : $element.data("about-label-en");
+      $element.attr("data-label", label);
+    });
+
+    $(".honors-toggle").each(function () {
+      const $button = $(this);
+      const isExpanded = $button.attr("aria-expanded") === "true";
+      const labelKey = isExpanded ? "hide-label" : "show-label";
+      const label = normalizedLanguage === "zh" ? $button.data(labelKey + "-zh") || $button.data(labelKey) : $button.data(labelKey);
+      $button.find("span").text(label);
+    });
+  };
+
+  updateAboutLanguageControls(document.documentElement.getAttribute("data-about-lang"));
+
+  $("[data-about-lang-option]").click(function () {
+    const language = $(this).data("about-lang-option") === "zh" ? "zh" : "en";
+    try {
+      window.localStorage.setItem(ABOUT_LANGUAGE_STORAGE_KEY, language);
+    } catch (error) {
+      // Language switching should still work when storage is unavailable.
+    }
+    setAboutLanguage(language);
+    updateAboutLanguageControls(language);
+  });
+
   const togglePublicationPanel = function ($entry, panelClass) {
     const panelSelector = "." + panelClass + ".hidden";
     $entry.find(panelSelector).toggleClass("open");
@@ -24,9 +85,11 @@ $(document).ready(function () {
   $(".honors-toggle").click(function () {
     const $button = $(this);
     const isExpanded = $button.attr("aria-expanded") === "true";
+    const language = document.documentElement.getAttribute("data-about-lang") === "zh" ? "zh" : "en";
+    const labelKey = isExpanded ? "show-label" : "hide-label";
     $(".honors-list .honor-extra").toggleClass("is-collapsed", isExpanded);
     $button.attr("aria-expanded", isExpanded ? "false" : "true");
-    $button.find("span").text(isExpanded ? $button.data("show-label") : $button.data("hide-label"));
+    $button.find("span").text(language === "zh" ? $button.data(labelKey + "-zh") || $button.data(labelKey) : $button.data(labelKey));
   });
   $("a").removeClass("waves-effect waves-light");
 

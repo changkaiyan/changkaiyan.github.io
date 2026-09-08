@@ -54,29 +54,47 @@
             {% if entry.position %}{{ entry.position }}{% endif %}
           {% endcapture %}
 
-          {% if entry.url %}
-            <h6 class="title font-weight-bold ml-1 ml-md-4">
-              <a href="{{ entry.url }}">{{ position_title }}</a>
-            </h6>
-          {% elsif position_title != '' %}
-            <h6 class="title font-weight-bold ml-1 ml-md-4">{{ position_title }}</h6>
-          {% endif %}
-
           {% capture company_name %}
             {% if entry.name %}{{ entry.name }}{% elsif entry.company %}{{ entry.company }}{% elsif entry.organization %}{{ entry.organization }}{% endif %}
           {% endcapture %}
-          {% if company_name != '' %}
-            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">{{ company_name }}</h6>
-          {% endif %}
 
-          {% if entry.summary %}
-            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">
-              {{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}
-            </h6>
-          {% endif %}
+          <div class="cv-entry-with-logo ml-1 ml-md-4">
+            {% if entry.logo %}
+              {% assign logo_path = entry.logo %}
+              {% unless logo_path contains '://' %}
+                {% assign logo_path = logo_path | prepend: 'assets/img/' | relative_url %}
+              {% endunless %}
+              <img
+                class="cv-entry-logo"
+                src="{{ logo_path }}"
+                alt="{{ entry.logo_alt | default: company_name | escape }}"
+                loading="lazy"
+              >
+            {% endif %}
+
+            <div class="cv-entry-main">
+              {% if entry.url %}
+                <h6 class="title font-weight-bold">
+                  <a href="{{ entry.url }}">{{ position_title }}</a>
+                </h6>
+              {% elsif position_title != '' %}
+                <h6 class="title font-weight-bold">{{ position_title }}</h6>
+              {% endif %}
+
+              {% if company_name != '' %}
+                <h6 class="cv-entry-org">{{ company_name }}</h6>
+              {% endif %}
+
+              {% if entry.summary %}
+                <h6 class="cv-entry-detail">
+                  {{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}
+                </h6>
+              {% endif %}
+            </div>
+          </div>
 
           {% if entry.highlights %}
-            <ul class="items">
+            <ul class="items cv-entry-items">
               {% for item in entry.highlights %}
                 <li>
                   <span class="item">{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</span>

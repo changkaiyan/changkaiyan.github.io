@@ -6,8 +6,18 @@ layout: default
     class="post-header"
     {% if page.header_label %}
       data-label="{{ page.header_label | escape }}"
+      data-about-label-en="{{ page.header_label | escape }}"
+      {% if page.header_label_zh %}
+        data-about-label-zh="{{ page.header_label_zh | escape }}"
+      {% endif %}
     {% endif %}
   >
+    {% if page.about_languages %}
+      <div class="about-language-switch" aria-label="Language switch">
+        <button type="button" data-about-lang-option="en" aria-pressed="true">EN</button>
+        <button type="button" data-about-lang-option="zh" aria-pressed="false">中文</button>
+      </div>
+    {% endif %}
     <h1 class="post-title">
       {% if page.about_name %}
         {{ page.about_name }}
@@ -31,6 +41,10 @@ layout: default
           tabindex="0"
           {% if page.profile.label %}
             data-label="{{ page.profile.label | escape }}"
+            data-about-label-en="{{ page.profile.label | escape }}"
+            {% if page.profile.label_zh %}
+              data-about-label-zh="{{ page.profile.label_zh | escape }}"
+            {% endif %}
           {% endif %}
         >
           {% if page.profile.image %}
@@ -59,16 +73,31 @@ layout: default
         class="about-intro clearfix"
         {% if page.about_profile_label %}
           data-label="{{ page.about_profile_label | escape }}"
+          data-about-label-en="{{ page.about_profile_label | escape }}"
+          {% if page.about_profile_label_zh %}
+            data-about-label-zh="{{ page.about_profile_label_zh | escape }}"
+          {% endif %}
         {% endif %}
       >
-        <div class="academic-profile-copy">{{ content }}</div>
+        <div class="academic-profile-copy">
+          <div data-about-lang="en">{{ content }}</div>
+          {% if page.intro_zh %}
+            <div data-about-lang="zh">{{ page.intro_zh | markdownify }}</div>
+          {% endif %}
+        </div>
         {% if page.academic_profile and page.academic_profile.detail %}
           <details class="academic-profile-detail">
             <summary>
-              <span>{{ page.academic_profile.detail_title | default: 'Academic background' }}</span>
+              <span data-about-lang="en">{{ page.academic_profile.detail_title | default: 'Academic background' }}</span>
+              {% if page.academic_profile.detail_title_zh %}
+                <span data-about-lang="zh">{{ page.academic_profile.detail_title_zh }}</span>
+              {% endif %}
               <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <p>{{ page.academic_profile.detail }}</p>
+            <p data-about-lang="en">{{ page.academic_profile.detail }}</p>
+            {% if page.academic_profile.detail_zh %}
+              <p data-about-lang="zh">{{ page.academic_profile.detail_zh }}</p>
+            {% endif %}
           </details>
         {% endif %}
       </div>
@@ -88,20 +117,38 @@ layout: default
         {% endif %}
         <div class="focus-feature-copy">
           {% if page.focus_feature.eyebrow %}
-            <span class="focus-feature-eyebrow">{{ page.focus_feature.eyebrow }}</span>
+            <span class="focus-feature-eyebrow" data-about-lang="en">{{ page.focus_feature.eyebrow }}</span>
+            {% if page.focus_feature.eyebrow_zh %}
+              <span class="focus-feature-eyebrow" data-about-lang="zh">{{ page.focus_feature.eyebrow_zh }}</span>
+            {% endif %}
           {% endif %}
           {% if page.focus_feature.title %}
-            <h2>{{ page.focus_feature.title }}</h2>
+            <h2>
+              <span data-about-lang="en">{{ page.focus_feature.title }}</span>
+              {% if page.focus_feature.title_zh %}
+                <span data-about-lang="zh">{{ page.focus_feature.title_zh }}</span>
+              {% endif %}
+            </h2>
           {% endif %}
           {% if page.focus_feature.summary %}
-            <p>{{ page.focus_feature.summary }}</p>
+            <p data-about-lang="en">{{ page.focus_feature.summary }}</p>
+            {% if page.focus_feature.summary_zh %}
+              <p data-about-lang="zh">{{ page.focus_feature.summary_zh }}</p>
+            {% endif %}
           {% endif %}
           {% if page.focus_feature.points %}
-            <ul class="focus-feature-points">
+            <ul class="focus-feature-points" data-about-lang="en">
               {% for point in page.focus_feature.points %}
                 <li>{{ point }}</li>
               {% endfor %}
             </ul>
+            {% if page.focus_feature.points_zh %}
+              <ul class="focus-feature-points" data-about-lang="zh">
+                {% for point in page.focus_feature.points_zh %}
+                  <li>{{ point }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
           {% endif %}
           {% if page.focus_feature.links %}
             <div class="focus-feature-actions">
@@ -110,7 +157,10 @@ layout: default
                   {% if link.icon %}
                     <i class="fa-solid {{ link.icon }}" aria-hidden="true"></i>
                   {% endif %}
-                  <span>{{ link.label }}</span>
+                  <span data-about-lang="en">{{ link.label }}</span>
+                  {% if link.label_zh %}
+                    <span data-about-lang="zh">{{ link.label_zh }}</span>
+                  {% endif %}
                 </a>
               {% endfor %}
             </div>
@@ -121,7 +171,10 @@ layout: default
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
-      <h2 id="news">News</h2>
+      <h2 id="news">
+        <span data-about-lang="en">News</span>
+        <span data-about-lang="zh">动态</span>
+      </h2>
       {% include news.liquid limit=true %}
     {% endif %}
 
@@ -136,9 +189,11 @@ layout: default
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <h2 id="selected-publications" class="section-heading-with-action">
-        <span>Selected publications</span>
+        <span data-about-lang="en">Selected publications</span>
+        <span data-about-lang="zh">代表性论文</span>
         <a class="section-view-all" href="{{ '/publications/' | relative_url }}" aria-label="View all publications">
-          <span>All publications</span>
+          <span data-about-lang="en">All publications</span>
+          <span data-about-lang="zh">全部论文</span>
           <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
         </a>
       </h2>
@@ -146,19 +201,33 @@ layout: default
     {% endif %}
 
     {% if page.research_directions %}
-      <h2 id="research">{{ page.research_directions_title | default: 'Projects' }}</h2>
+      <h2 id="research">
+        <span data-about-lang="en">{{ page.research_directions_title | default: 'Projects' }}</span>
+        {% if page.research_directions_title_zh %}
+          <span data-about-lang="zh">{{ page.research_directions_title_zh }}</span>
+        {% endif %}
+      </h2>
       <div class="research-directions-list">
         {% for direction in page.research_directions %}
           <details class="research-direction" id="research-direction-{{ forloop.index }}">
             <summary>
               <span class="research-index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
               <span class="research-heading">
-                <span class="research-title">{{ direction.title | default: direction }}</span>
+                <span class="research-title" data-about-lang="en">{{ direction.title | default: direction }}</span>
+                {% if direction.title_zh %}
+                  <span class="research-title" data-about-lang="zh">{{ direction.title_zh }}</span>
+                {% endif %}
                 {% if direction.summary %}
-                  <span class="research-summary">{{ direction.summary }}</span>
+                  <span class="research-summary" data-about-lang="en">{{ direction.summary }}</span>
+                  {% if direction.summary_zh %}
+                    <span class="research-summary" data-about-lang="zh">{{ direction.summary_zh }}</span>
+                  {% endif %}
                 {% endif %}
                 {% if direction.contribution %}
-                  <span class="research-contribution">{{ direction.contribution }}</span>
+                  <span class="research-contribution" data-about-lang="en">{{ direction.contribution }}</span>
+                  {% if direction.contribution_zh %}
+                    <span class="research-contribution" data-about-lang="zh">{{ direction.contribution_zh }}</span>
+                  {% endif %}
                 {% endif %}
               </span>
               <span class="research-toggle" aria-hidden="true">
@@ -167,7 +236,10 @@ layout: default
             </summary>
             {% if direction.detail %}
               <div class="research-detail">
-                <p>{{ direction.detail }}</p>
+                <p data-about-lang="en">{{ direction.detail }}</p>
+                {% if direction.detail_zh %}
+                  <p data-about-lang="zh">{{ direction.detail_zh }}</p>
+                {% endif %}
                 {% if direction.tech %}
                   <div class="research-tech" aria-label="Technology stack">
                     {% assign tech_items = direction.tech | split: ',' %}
@@ -183,13 +255,24 @@ layout: default
       </div>
       {% if page.research_directions.size > 1 %}
         <div class="research-route" aria-label="{{ page.research_route_title | default: 'Research route' }}">
-          <div class="research-route-title">{{ page.research_route_title | default: 'Research route' }}</div>
+          <div class="research-route-title">
+            <span data-about-lang="en">{{ page.research_route_title | default: 'Research route' }}</span>
+            {% if page.research_route_title_zh %}
+              <span data-about-lang="zh">{{ page.research_route_title_zh }}</span>
+            {% endif %}
+          </div>
           <ol class="research-route-list">
             {% for direction in page.research_directions %}
               <li class="research-route-item">
                 <span class="research-route-dot" aria-hidden="true"></span>
-                <span class="research-route-label">{{ direction.route_label | default: direction.title }}</span>
-                <span class="research-route-text">{{ direction.contribution | default: direction.summary }}</span>
+                <span class="research-route-label" data-about-lang="en">{{ direction.route_label | default: direction.title }}</span>
+                {% if direction.route_label_zh or direction.title_zh %}
+                  <span class="research-route-label" data-about-lang="zh">{{ direction.route_label_zh | default: direction.title_zh }}</span>
+                {% endif %}
+                <span class="research-route-text" data-about-lang="en">{{ direction.contribution | default: direction.summary }}</span>
+                {% if direction.contribution_zh or direction.summary_zh %}
+                  <span class="research-route-text" data-about-lang="zh">{{ direction.contribution_zh | default: direction.summary_zh }}</span>
+                {% endif %}
               </li>
             {% endfor %}
           </ol>
@@ -198,16 +281,21 @@ layout: default
     {% endif %}
 
     {% if page.impact_media %}
-      <h2 id="impact-media">{{ page.impact_media_title | default: 'Impact & Media' }}</h2>
+      <h2 id="impact-media">
+        <span data-about-lang="en">{{ page.impact_media_title | default: 'Impact & Media' }}</span>
+        {% if page.impact_media_title_zh %}
+          <span data-about-lang="zh">{{ page.impact_media_title_zh }}</span>
+        {% endif %}
+      </h2>
       <div class="impact-media">
         {% for group in page.impact_media %}
           <section class="impact-media-group">
             <h3>
               <i class="fa-solid {{ group.icon | default: 'fa-circle-info' }}" aria-hidden="true"></i>
               <span>
-                <span>{{ group.title_en | default: group.title }}</span>
+                <span data-about-lang="en">{{ group.title_en | default: group.title }}</span>
                 {% if group.title_zh %}
-                  <small>{{ group.title_zh }}</small>
+                  <span data-about-lang="zh">{{ group.title_zh }}</span>
                 {% endif %}
               </span>
             </h3>
@@ -215,31 +303,40 @@ layout: default
               {% for item in group.items %}
                 <article class="impact-media-item{% if item.quote or item.quote_en or item.quote_zh %} has-quote{% endif %}">
                   <div class="impact-media-meta">
-                    <a class="impact-media-title" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
-                      <span>{{ item.title_en | default: item.title }}</span>
-                      {% if item.title_zh %}
-                        <small>{{ item.title_zh }}</small>
-                      {% endif %}
-                    </a>
+                    {% if item.url %}
+                      <a class="impact-media-title" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
+                        <span data-about-lang="en">{{ item.title_en | default: item.title }}</span>
+                        {% if item.title_zh %}
+                          <span data-about-lang="zh">{{ item.title_zh }}</span>
+                        {% endif %}
+                      </a>
+                    {% else %}
+                      <span class="impact-media-title">
+                        <span data-about-lang="en">{{ item.title_en | default: item.title }}</span>
+                        {% if item.title_zh %}
+                          <span data-about-lang="zh">{{ item.title_zh }}</span>
+                        {% endif %}
+                      </span>
+                    {% endif %}
                     <span class="impact-media-source">
-                      <em>{{ item.source_en | default: item.source }}</em>
+                      <em data-about-lang="en">{{ item.source_en | default: item.source }}</em>
                       {% if item.source_zh %}
-                        <span>{{ item.source_zh }}</span>
+                        <em data-about-lang="zh">{{ item.source_zh }}</em>
                       {% endif %}
                       {% if item.note -%}
                         <span>{{ item.note }}</span>
                       {%- endif %}
                       {% if item.note_en -%}
-                        <span>{{ item.note_en }}</span>
+                        <span data-about-lang="en">{{ item.note_en }}</span>
                       {%- endif %}
                       {% if item.note_zh -%}
-                        <span>{{ item.note_zh }}</span>
+                        <span data-about-lang="zh">{{ item.note_zh }}</span>
                       {%- endif %}
                       {% if item.date_en -%}
-                        <time>{{ item.date_en }}</time>
+                        <time data-about-lang="en">{{ item.date_en }}</time>
                       {%- endif %}
                       {% if item.date_zh -%}
-                        <time>{{ item.date_zh }}</time>
+                        <time data-about-lang="zh">{{ item.date_zh }}</time>
                       {%- endif %}
                       {% if item.date -%}
                         <time>{{ item.date }}</time>
@@ -252,26 +349,29 @@ layout: default
                         <span class="quote-summary-main">
                           <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
                           <span>
-                            <strong>Quoted remarks</strong>
+                            <strong data-about-lang="en">Quoted remarks</strong>
+                            <strong data-about-lang="zh">媒体引述</strong>
                             {% if item.quote_zh %}
-                              <small>English + 中文</small>
+                              <small data-about-lang="en">English excerpt</small>
+                              <small data-about-lang="zh">中文摘录</small>
                             {% else %}
                               <small>English excerpt</small>
                             {% endif %}
                           </span>
                         </span>
                         <span class="quote-summary-action">
-                          <span>Read quote</span>
+                          <span data-about-lang="en">Read quote</span>
+                          <span data-about-lang="zh">查看引文</span>
                           <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
                         </span>
                       </summary>
                       {% if item.quote_en %}
-                        <blockquote>{{ item.quote_en | newline_to_br }}</blockquote>
+                        <blockquote data-about-lang="en">{{ item.quote_en | newline_to_br }}</blockquote>
                       {% elsif item.quote %}
                         <blockquote>{{ item.quote | newline_to_br }}</blockquote>
                       {% endif %}
                       {% if item.quote_zh %}
-                        <blockquote class="quote-zh">{{ item.quote_zh | newline_to_br }}</blockquote>
+                        <blockquote class="quote-zh" data-about-lang="zh">{{ item.quote_zh | newline_to_br }}</blockquote>
                       {% endif %}
                     </details>
                   {% endif %}
@@ -284,7 +384,10 @@ layout: default
     {% endif %}
 
     {% if page.honors_awards %}
-      <h2 id="honors-awards">Honors and Awards</h2>
+      <h2 id="honors-awards">
+        <span data-about-lang="en">Honors and Awards</span>
+        <span data-about-lang="zh">荣誉奖励</span>
+      </h2>
       <ul class="honors-list">
         {% for honor in page.honors_awards %}
           <li class="honor-item{% if forloop.index > 6 %} honor-extra is-collapsed{% endif %}" tabindex="0">
@@ -292,8 +395,10 @@ layout: default
             <span class="honor-content">
               <span class="honor-text">
                 {% if honor.en %}
-                  <span class="honor-title">{{ honor.en }}</span>
-                  <span class="honor-translation">{{ honor.zh }}</span>
+                  <span class="honor-title" data-about-lang="en">{{ honor.en }}</span>
+                  {% if honor.zh %}
+                    <span class="honor-title" data-about-lang="zh">{{ honor.zh }}</span>
+                  {% endif %}
                 {% else %}
                   <span class="honor-title">{{ honor }}</span>
                 {% endif %}
@@ -309,7 +414,15 @@ layout: default
         {% endfor %}
       </ul>
       {% if page.honors_awards.size > 6 %}
-        <button type="button" class="honors-toggle" aria-expanded="false" data-show-label="Show all honors" data-hide-label="Show fewer">
+        <button
+          type="button"
+          class="honors-toggle"
+          aria-expanded="false"
+          data-show-label="Show all honors"
+          data-hide-label="Show fewer"
+          data-show-label-zh="显示全部荣誉"
+          data-hide-label-zh="收起"
+        >
           <span>Show all honors</span>
           <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
         </button>
@@ -317,58 +430,111 @@ layout: default
     {% endif %}
 
     {% if page.services %}
-      <h2 id="services">Services</h2>
-      <ul class="services-list">
-        {% for service in page.services %}
-          <li class="service-item">
-            <span class="service-icon">
-              {% assign service_text = service.role | default: service %}
-              {% assign service_downcase = service_text | downcase %}
-              {% if service_downcase contains 'program committee' %}
-                <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
-              {% elsif service_downcase contains 'reviewer' %}
-                <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
-              {% elsif service_downcase contains 'officer' %}
-                <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
-              {% elsif service_downcase contains 'volunteer' %}
-                <i class="fa-solid fa-handshake-angle" aria-hidden="true"></i>
-              {% elsif service_downcase contains 'staff' %}
-                <i class="fa-solid fa-user-group" aria-hidden="true"></i>
-              {% elsif service_downcase contains '报告' or service_downcase contains 'talk' %}
-                <i class="fa-solid fa-microphone-lines" aria-hidden="true"></i>
-              {% else %}
-                <i class="fa-solid fa-handshake-angle" aria-hidden="true"></i>
-              {% endif %}
-            </span>
-            <span class="service-content">
-              {% if service.role %}
-                <span class="service-role">{{ service.role }}</span>
-                <span class="service-meta">
-                  {% if service.type %}
-                    <span>{{ service.type }}</span>
-                  {% endif %}
-                  {% if service.year %}
-                    <span>{{ service.year }}</span>
-                  {% endif %}
-                  {% if service.date %}
-                    <span>{{ service.date }}</span>
+      <h2 id="services">
+        <span data-about-lang="en">Services</span>
+        <span data-about-lang="zh">学术服务</span>
+      </h2>
+      {% for service_group in page.services %}
+        {% if service_group.items %}
+          <h3 class="service-group-title">
+            <span data-about-lang="en">{{ service_group.group }}</span>
+            {% if service_group.group_zh %}
+              <span data-about-lang="zh">{{ service_group.group_zh }}</span>
+            {% endif %}
+          </h3>
+          <ul class="services-list">
+            {% for service in service_group.items %}
+              <li class="service-item">
+                <span class="service-icon">
+                  {% if service_group.icon %}
+                    <i class="fa-solid {{ service_group.icon }}" aria-hidden="true"></i>
+                  {% else %}
+                    <i class="fa-solid fa-handshake-angle" aria-hidden="true"></i>
                   {% endif %}
                 </span>
-                {% if service.venues %}
-                  <span class="service-venues">
-                    {% assign service_venues = service.venues | split: ',' %}
-                    {% for venue in service_venues %}
-                      <span>{{ venue | strip }}</span>
-                    {% endfor %}
+                <span class="service-content">
+                  <span class="service-role" data-about-lang="en">{{ service.role }}</span>
+                  {% if service.role_zh %}
+                    <span class="service-role" data-about-lang="zh">{{ service.role_zh }}</span>
+                  {% endif %}
+                  <span class="service-meta">
+                    {% if service.type %}
+                      <span>{{ service.type }}</span>
+                    {% endif %}
+                    {% if service.year %}
+                      <span>{{ service.year }}</span>
+                    {% endif %}
+                    {% if service.date %}
+                      <span>{{ service.date }}</span>
+                    {% endif %}
                   </span>
+                  {% if service.venues %}
+                    <span class="service-venues">
+                      {% assign service_venues = service.venues | split: ',' %}
+                      {% for venue in service_venues %}
+                        <span>{{ venue | strip }}</span>
+                      {% endfor %}
+                    </span>
+                  {% endif %}
+                </span>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <ul class="services-list">
+            <li class="service-item">
+              <span class="service-icon">
+                {% assign service_text = service_group.role | default: service_group %}
+                {% assign service_downcase = service_text | downcase %}
+                {% if service_downcase contains 'program committee' %}
+                  <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
+                {% elsif service_downcase contains 'reviewer' %}
+                  <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+                {% elsif service_downcase contains 'officer' %}
+                  <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+                {% elsif service_downcase contains 'volunteer' %}
+                  <i class="fa-solid fa-handshake-angle" aria-hidden="true"></i>
+                {% elsif service_downcase contains 'staff' %}
+                  <i class="fa-solid fa-user-group" aria-hidden="true"></i>
+                {% elsif service_downcase contains '报告' or service_downcase contains 'talk' %}
+                  <i class="fa-solid fa-microphone-lines" aria-hidden="true"></i>
+                {% else %}
+                  <i class="fa-solid fa-handshake-angle" aria-hidden="true"></i>
                 {% endif %}
-              {% else %}
-                <span class="service-role">{{ service }}</span>
-              {% endif %}
-            </span>
-          </li>
-        {% endfor %}
-      </ul>
+              </span>
+              <span class="service-content">
+                {% if service_group.role %}
+                  <span class="service-role" data-about-lang="en">{{ service_group.role }}</span>
+                  {% if service_group.role_zh %}
+                    <span class="service-role" data-about-lang="zh">{{ service_group.role_zh }}</span>
+                  {% endif %}
+                  <span class="service-meta">
+                    {% if service_group.type %}
+                      <span>{{ service_group.type }}</span>
+                    {% endif %}
+                    {% if service_group.year %}
+                      <span>{{ service_group.year }}</span>
+                    {% endif %}
+                    {% if service_group.date %}
+                      <span>{{ service_group.date }}</span>
+                    {% endif %}
+                  </span>
+                  {% if service_group.venues %}
+                    <span class="service-venues">
+                      {% assign service_venues = service_group.venues | split: ',' %}
+                      {% for venue in service_venues %}
+                        <span>{{ venue | strip }}</span>
+                      {% endfor %}
+                    </span>
+                  {% endif %}
+                {% else %}
+                  <span class="service-role">{{ service_group }}</span>
+                {% endif %}
+              </span>
+            </li>
+          </ul>
+        {% endif %}
+      {% endfor %}
     {% endif %}
 
     <!-- Social -->
@@ -376,7 +542,12 @@ layout: default
       <div id="contact" class="social">
         <div class="contact-icons">{% social_links %}</div>
 
-        <div class="contact-note">{{ page.contact_note | default: site.contact_note }}</div>
+        <div class="contact-note">
+          <span data-about-lang="en">{{ page.contact_note | default: site.contact_note }}</span>
+          {% if page.contact_note_zh %}
+            <span data-about-lang="zh">{{ page.contact_note_zh }}</span>
+          {% endif %}
+        </div>
       </div>
     {% endif %}
 

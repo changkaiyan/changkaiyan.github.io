@@ -250,25 +250,48 @@ layout: default
             <h3 class="card-title font-weight-medium">Services</h3>
             <ul class="card-text font-weight-light list-group list-group-flush">
               {% for service in about_page.services %}
-                <li class="list-group-item cv-compact-item">
-                  {% if service.role %}
-                    <span class="font-weight-bold">{{ service.role }}</span>
-                    {% if service.venues %}
-                      , {{ service.venues }}
+                {% if service.items %}
+                  <li class="list-group-item cv-compact-item">
+                    <span class="font-weight-bold">{{ service.group }}</span>
+                  </li>
+                  {% for grouped_service in service.items %}
+                    <li class="list-group-item cv-compact-item">
+                      <span class="font-weight-bold">{{ grouped_service.role }}</span>
+                      {% if grouped_service.venues %}
+                        , {{ grouped_service.venues }}
+                      {% endif %}
+                      {% if grouped_service.year %}
+                        , {{ grouped_service.year }}
+                      {% endif %}
+                      {% if grouped_service.date %}
+                        , {{ grouped_service.date }}
+                      {% endif %}
+                      {% if grouped_service.type %}
+                        <span class="cv-service-type">({{ grouped_service.type }})</span>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                {% else %}
+                  <li class="list-group-item cv-compact-item">
+                    {% if service.role %}
+                      <span class="font-weight-bold">{{ service.role }}</span>
+                      {% if service.venues %}
+                        , {{ service.venues }}
+                      {% endif %}
+                      {% if service.year %}
+                        , {{ service.year }}
+                      {% endif %}
+                      {% if service.date %}
+                        , {{ service.date }}
+                      {% endif %}
+                      {% if service.type %}
+                        <span class="cv-service-type">({{ service.type }})</span>
+                      {% endif %}
+                    {% else %}
+                      {{ service }}
                     {% endif %}
-                    {% if service.year %}
-                      , {{ service.year }}
-                    {% endif %}
-                    {% if service.date %}
-                      , {{ service.date }}
-                    {% endif %}
-                    {% if service.type %}
-                      <span class="cv-service-type">({{ service.type }})</span>
-                    {% endif %}
-                  {% else %}
-                    {{ service }}
-                  {% endif %}
-                </li>
+                  </li>
+                {% endif %}
               {% endfor %}
             </ul>
           </div>

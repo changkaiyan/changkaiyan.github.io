@@ -56,24 +56,41 @@
             {% if entry.studyType %}{{ entry.studyType }}{% elsif entry.degree %}{{ entry.degree }}{% endif %}
           {% endcapture %}
 
-          {% if entry.url %}
-            <h6 class="title font-weight-bold ml-1 ml-md-4">
-              <a href="{{ entry.url }}">{{ study_type }}</a>
-            </h6>
-          {% elsif study_type != '' %}
-            <h6 class="title font-weight-bold ml-1 ml-md-4">{{ study_type }}</h6>
-          {% endif %}
+          <div class="cv-entry-with-logo ml-1 ml-md-4">
+            {% if entry.logo %}
+              {% assign logo_path = entry.logo %}
+              {% unless logo_path contains '://' %}
+                {% assign logo_path = logo_path | prepend: 'assets/img/' | relative_url %}
+              {% endunless %}
+              <img
+                class="cv-entry-logo"
+                src="{{ logo_path }}"
+                alt="{{ entry.logo_alt | default: entry.institution | escape }}"
+                loading="lazy"
+              >
+            {% endif %}
 
-          {% if entry.institution %}
-            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">{{ entry.institution }}</h6>
-          {% endif %}
+            <div class="cv-entry-main">
+              {% if entry.url %}
+                <h6 class="title font-weight-bold">
+                  <a href="{{ entry.url }}">{{ study_type }}</a>
+                </h6>
+              {% elsif study_type != '' %}
+                <h6 class="title font-weight-bold">{{ study_type }}</h6>
+              {% endif %}
 
-          {% if entry.area %}
-            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ entry.area }}</h6>
-          {% endif %}
+              {% if entry.institution %}
+                <h6 class="cv-entry-org">{{ entry.institution }}</h6>
+              {% endif %}
+
+              {% if entry.area %}
+                <h6 class="cv-entry-detail">{{ entry.area }}</h6>
+              {% endif %}
+            </div>
+          </div>
 
           {% if entry.courses or entry.highlights %}
-            <ul class="items">
+            <ul class="items cv-entry-items">
               {% for item in entry.courses %}
                 <li>
                   <span class="item">{{ item }}</span>

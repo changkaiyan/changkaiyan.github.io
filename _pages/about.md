@@ -2,9 +2,11 @@
 layout: about
 title: About
 permalink: /
+about_languages: true
 about_name: Kaiyan Chang （常开颜）
 navbar_name: Kaiyan Chang （常开颜）
 about_profile_label: Academic Profile
+about_profile_label_zh: 学术简介
 footer:
   enabled: true
   text: "© 2026 Kaiyan Chang. Academic homepage built with Jekyll and al-folio."
@@ -17,6 +19,7 @@ profile:
   image: photo.png
   image_circular: true # crops the image to make it circular
   label: Kaiyan Chang (常开颜)
+  label_zh: 常开颜（Kaiyan Chang）
   more_info: >
     <p>Institute of Computing Technology, Chinese Academy of Sciences</p>
     <p>State key lab of Processor Chip</p>
@@ -26,26 +29,44 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 contact_note: >
   I am open to research collaborations, academic discussions.
+contact_note_zh: >
+  欢迎围绕科研合作与学术问题交流。
+
+intro_zh: |
+  您好！我于 2026 年 6 月在中国科学院计算技术研究所获得计算机体系结构方向博士学位，导师为王颖研究员和李华伟研究员。在此之前，我于 2017 年进入电子科技大学软件工程专业学习，并于 2021 年获得工学学士学位，本科导师为蒋伟教授。
+
+  我的研究方向位于计算机体系结构、电子设计自动化和大语言模型的交叉领域。我尤其关注如何构建能够理解、生成、验证和优化硬件设计的智能系统。近期工作包括 ChipGPT、ChipGPT-FT、多模态 Verilog 生成，以及面向数据流加速器的基于大语言模型的代价建模。
 
 academic_profile:
   detail_title: Background and internships
+  detail_title_zh: 教育背景与实习经历
   detail: Before and during my Ph.D., I interned at Intel Asia-Pacific R&D Center, Huawei 2012 Laboratories, and the National Innovation Center for EDA, where I worked on compiler testing and development, AI compiler research, and LLM-based circuit code generation.
+  detail_zh: 博士期间及之前，我曾在英特尔亚太研发中心、华为 2012 实验室、国家集成电路设计自动化技术创新中心实习，从事编译器测试与开发、AI 编译器研究以及基于大语言模型的电路代码生成等工作。
 
 focus_feature:
   eyebrow: Research Focus
+  eyebrow_zh: 研究重点
   title: ChipGPT for Processor Design Automation
+  title_zh: 面向处理器设计自动化的 ChipGPT
   image: chipgpt.png
   image_alt: ChipGPT overview for LLM-assisted processor design automation
   summary: My research explores how large language models can understand architecture intent, generate and refine hardware code, and support processor design workflows with domain knowledge and tool feedback.
+  summary_zh: 我的研究探索大语言模型如何理解体系结构设计意图、生成与优化硬件代码，并结合领域知识和工具反馈支撑处理器设计流程。
   points:
     - Natural-language to processor design intent
     - Knowledge-grounded Verilog and microarchitecture generation
     - Evaluation, verification, and design-flow integration
+  points_zh:
+    - 从自然语言理解处理器设计意图
+    - 基于知识增强的 Verilog 与微体系结构生成
+    - 面向评估、验证和设计流程集成的方法
   links:
     - label: Explore research
+      label_zh: 查看研究方向
       url: "#research"
       icon: fa-diagram-project
     - label: Selected publications
+      label_zh: 代表性论文
       url: "#selected-publications"
       icon: fa-file-lines
 
@@ -126,62 +147,99 @@ honors_awards:
     detail: National-level scholarship recognizing top undergraduate students for academic excellence and comprehensive performance.
 
 services:
-  - role: Program Committee Member
-    venues: AAAI
-    year: 2026
-    type: Conference service
-  - role: Program Committee Member
-    venues: NeurIPS
-    year: 2026
-    type: Conference service
-  - role: Reviewer
-    venues: IEEE TODAES, TCAD, IEEE Communications Magazine, JSA, ESWA
-    type: Journal reviewing
-  - role: Minister of Academic Affairs
-    venues: Graduate Student Union in Institute of Computing Technology Chinese Academy of Sciences
-    date: Sep. 2022 - Sep. 2023
-    type: Student service
-  - role: Conference Volunteer
-    venues: CCF DAC 2023
-    date: Oct. 2023
-    type: Conference service
-  - role: Staff
-    venues: Public Science Day of Chinese Academy of Sciences
-    date: May 2024
-    type: Outreach service
-  - role: Staff
-    venues: Public Science Day of Chinese Academy of Sciences
-    date: May 2025
-    type: Outreach service
-  - role: Organizer
-    venues: Shishuo Jiyu Student Forum, Institute of Computing Technology
-    date: Sep. 2022 - Sep. 2023
-    type: Conference service
-  - role: Experiment Teaching Assistant
-    venues: Integrated Circuit and SoC Design Course, UCAS Hangzhou Institute for Advanced Study
-    date: Fall 2024 - Fall 2025
-    type: Experiment Assistant
+  - group: Journal Reviewer
+    group_zh: 期刊审稿
+    icon: fa-pen-to-square
+    items:
+      - role: Reviewer
+        role_zh: 审稿人
+        venues: IEEE TODAES, IEEE TCAD, IEEE Communications Magazine, JSA, ESWA
+  - group: Conference Reviewer / Program Committee Member
+    group_zh: 会议审稿与程序委员会
+    icon: fa-users-gear
+    items:
+      - role: Program Committee Member
+        role_zh: 程序委员会成员
+        venues: AAAI
+        year: 2026
+      - role: Program Committee Member
+        role_zh: 程序委员会成员
+        venues: NeurIPS
+        year: 2026
+  - group: Academic Roles
+    group_zh: 学术与组织服务
+    icon: fa-clipboard-list
+    items:
+      - role: Minister of Academic Affairs
+        role_zh: 学术部长
+        venues: Graduate Student Union, Institute of Computing Technology, Chinese Academy of Sciences
+        date: Sep. 2022 - Sep. 2023
+      - role: Organizer
+        role_zh: 组织者
+        venues: Shishuo Jiyu Student Forum, Institute of Computing Technology
+        date: Sep. 2022 - Sep. 2023
+      - role: Experiment Teaching Assistant
+        role_zh: 实验助教
+        venues: Integrated Circuit and SoC Design Course, UCAS Hangzhou Institute for Advanced Study
+        date: Fall 2024 - Fall 2025
 
 research_directions_title: Research
+research_directions_title_zh: 研究方向
+research_route_title: Research route
+research_route_title_zh: 研究脉络
 research_directions:
   - title: Natural-Language Processor Design Automation
+    title_zh: 自然语言驱动的处理器设计自动化
     summary: Bridging architecture intent, design knowledge, and automated hardware generation
+    summary_zh: 连接体系结构设计意图、领域知识与自动化硬件生成
     contribution: ChipGPT-style processor design agents and knowledge-grounded generation flows
+    contribution_zh: 构建 ChipGPT 式处理器设计智能体与知识增强生成流程
     tech: LLM agents, RAG, processor design, Verilog
     detail: I study how natural-language specifications, structured microarchitectural knowledge, and automated design flows can reduce the complexity and iteration cost of processor design and verification.
+    detail_zh: 我研究如何利用自然语言规格、结构化微体系结构知识和自动化设计流程，降低处理器设计与验证的复杂度和迭代成本。
   - title: Dataflow Accelerator Modeling and Compiler Optimization
+    title_zh: 数据流加速器建模与编译优化
     summary: Co-designing models, mappings, compilers, and systems for efficient dataflow execution
+    summary_zh: 围绕高效数据流执行协同设计模型、映射、编译器与系统
     contribution: LLM-based cost models and compiler-facing design-space exploration
+    contribution_zh: 面向编译器的基于大语言模型的代价模型与设计空间探索
     tech: dataflow accelerators, cost modeling, compiler optimization
     detail: My work explores modeling, mapping, compilation, and system-level optimization for dataflow accelerators, with the goal of improving how specialized computation patterns are expressed and executed on hardware platforms.
+    detail_zh: 我的工作探索数据流加速器的建模、映射、编译和系统级优化，目标是改进专用计算模式在硬件平台上的表达与执行方式。
   - title: Multimodal Generative AI for Hardware Design
+    title_zh: 面向硬件设计的多模态生成式 AI
     summary: Evaluating and improving generative models across text, diagrams, and code
+    summary_zh: 面向文本、图示和代码多模态信号评估并改进生成模型
     contribution: Multimodal Verilog generation and evaluation for synthesizable hardware code
+    contribution_zh: 面向可综合硬件代码的多模态 Verilog 生成与评估
     tech: multimodal LLMs, Verilog, evaluation, synthesis
     detail: I investigate how multimodal signals such as natural language, architecture diagrams, and hardware code can be jointly modeled for hardware design, and develop evaluation methods for generation quality, synthesizability, and reliability.
+    detail_zh: 我研究自然语言、体系结构图示和硬件代码等多模态信号如何联合建模以服务硬件设计，并开发面向生成质量、可综合性和可靠性的评估方法。
 
 impact_media_title: Featured Talk
+impact_media_title_zh: 报告与媒体
 impact_media:
+  - title_en: Talks and Lectures
+    title_zh: 讲座报告
+    icon: fa-microphone-lines
+    items:
+      - title_en: "ChipGPT: AI-Assisted Chip Design"
+        title_zh: ChipGPT：AI辅助芯片设计
+        source_en: CAS Public Science Day Frontier Technology Showcase
+        source_zh: 中国科学院公众科学日前沿科技展
+        url: https://www.cas.ac.cn/spx/202405/t20240520_5015196.shtml
+        date_en: May 18, 2024
+        date_zh: 2024年5月18日
+        note_en: Public-facing science communication talk and demo
+        note_zh: 面向公众的科普讲解与演示
+      - title_en: "ChipGPT for Integrated Circuit and SoC Design Education"
+        title_zh: 面向集成电路与 SoC 设计教学的 ChipGPT
+        source_en: UCAS Hangzhou Institute for Advanced Study
+        source_zh: 中国科学院大学杭州高等研究院
+        date_en: Fall 2024 - Fall 2025
+        date_zh: 2024 秋 - 2025 秋
+        note_en: Course-oriented technical sharing and experiment support
+        note_zh: 面向课程实验的技术分享与辅助支持
   - title_en: National and Official Media Coverage
     title_zh: 国家官方媒体报道
     icon: fa-circle-info
