@@ -2,6 +2,7 @@
 layout: about
 title: About
 permalink: /
+description: Academic homepage of Kaiyan Chang (常开颜), researcher in computer architecture, EDA, and LLM-assisted chip design at ICT, CAS.
 about_languages: true
 about_name: Kaiyan Chang （常开颜）
 navbar_name: Kaiyan Chang （常开颜）

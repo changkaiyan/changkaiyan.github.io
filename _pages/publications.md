@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: Publications
-description: "* denotes Equal Contribution, # denotes Corresponding Author."
+description: Peer-reviewed publications by Kaiyan Chang in computer architecture, electronic design automation, and LLM-assisted chip design.
 nav: true
 nav_order: 2
 ---

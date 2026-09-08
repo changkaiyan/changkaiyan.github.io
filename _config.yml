@@ -2,18 +2,18 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: blank # the website title (if blank, full name will be used instead)
+title: "Kaiyan Chang | Computer Architecture & EDA Researcher"
 first_name: Kaiyan
 middle_name:
 last_name: Chang
 contact_note: >
   欢迎就科研合作、学术交流与学生培养事宜联系。
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  常开颜，中国科学院计算技术研究所博士研究生，研究处理器自动化设计、ChipGPT 与大模型辅助芯片设计。
+  Academic homepage of Kaiyan Chang (常开颜), researcher in computer architecture, electronic design automation, and LLM-assisted chip design at ICT, CAS.
 footer_text: >
   © 2026 常开颜 Kaiyan Chang. Academic homepage built with Jekyll and al-folio.
-keywords: 常开颜, 中国科学院计算技术研究所, ChipGPT, processor design, LLM for chip design # add your own keywords or leave empty
-lang: zh-CN # the language of your site (for example: en, fr, cn, ru, etc.)
+keywords: Kaiyan Chang, 常开颜, computer architecture, electronic design automation, ChipGPT, LLM-assisted chip design, processor design, ICT CAS
+lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://changkaiyan.github.io # the base hostname & protocol for your site
@@ -66,9 +66,10 @@ max_width: 1040px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
-serve_schema_org: false # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: true # Include Schema.org in the HTML head
+og_image: /assets/img/chipgpt.png # The site-wide (default for all links) Open Graph preview image
+og_locale: en_US
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
