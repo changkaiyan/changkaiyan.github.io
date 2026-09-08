@@ -191,7 +191,7 @@ ul.task-list input[type="checkbox"] {
 
 // About hero
 
-[data-about-lang="zh"] {
+[data-about-lang="zh"]:not(html) {
   display: none !important;
 }
 

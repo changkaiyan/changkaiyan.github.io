@@ -81,8 +81,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 
 honors_awards:
-  - en: Special Prize of President Scholarship, Chinese Academy of Sciences
-    zh: 中国科学院院长特别奖
+  - en: Special Prize of President Scholarship, Chinese Academy of Sciences (sole recipient at ICT that year)
+    zh: 中国科学院院长特别奖（当年计算所唯一获奖者）
     year: 2026
     detail: The highest-level scholarship recognition of the Chinese Academy of Sciences for doctoral students with outstanding research achievements.
   - en: Outstanding Graduate of Beijing
@@ -98,7 +98,7 @@ honors_awards:
     year: 2025
     detail: National-level scholarship recognizing top doctoral students for academic excellence and research potential.
   - en: MICRO 2025 Student Travel Grant
-    zh:
+    zh: MICRO 2025 学生差旅资助
     year: 2025
     detail: Competitive travel support for students attending MICRO, a top-tier computer architecture conference.
   - en: Lude Investment Doctoral Student Award
@@ -113,10 +113,10 @@ honors_awards:
     zh: 芯原杯集成电路设计大赛创芯奖
     year: 2025
     detail: Awarded for AI assistant design innovation and achievement in the VeriSilicon Cup Integrated Circuit Design Contest.
-  - en: ICCAD 2024 LLM Verilog Generation Contest Honor Award, Fourth Place
-    zh: ICCAD 2024 LLM Verilog 生成竞赛荣誉奖（第四名）
+  - en: ICCAD 2024 LLM Verilog Generation Contest Honor Award
+    zh: ICCAD 2024 LLM Verilog 生成竞赛荣誉奖
     year: 2024
-    detail: Fourth-place honor in an ICCAD contest focused on LLM-based Verilog generation and hardware design automation. Collaborate with CUHK group.
+    detail: Honor in an ICCAD contest focused on LLM-based Verilog generation and hardware design automation. Collaborate with CUHK group.
   - en: 61st Design Automation Conference Young Fellow
     zh: 第 61 届设计自动化大会（DAC）Young Fellow
     year: 2024
